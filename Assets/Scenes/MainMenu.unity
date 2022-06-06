@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumen: {fileID: 35493235}
   mute: {fileID: 331538565}
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 7d8f1d59271491342ab2e9c3d477eafd, type: 2}
   mainPanel: {fileID: 1989296867}
   optionsPanel: {fileID: 612640663}
 --- !u!1 &1146025228
