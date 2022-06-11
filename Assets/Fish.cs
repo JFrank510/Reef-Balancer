@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour
 {
-    public float speedX = 2.0f;
-    public float speedY = 1.0f;
-    public bool facingRight = true;
+    public float speedX;
+    public float speedY;
+    public bool facingRight;
 
     private Rigidbody2D rb;
     private Vector2 screenBounds;
@@ -14,6 +14,10 @@ public class Fish : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speedX = Random.Range(-3.0f, 3.0f);
+        speedY = Random.Range(-1.5f, 1.5f);
+        facingRight = true;
+
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(speedX, speedY);
         rb.isKinematic = false;
