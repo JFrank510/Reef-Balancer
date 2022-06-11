@@ -11,6 +11,7 @@ public class MainPanel : MonoBehaviour
     public Slider volumen;
     public Toggle mute;
     public AudioMixer mixer;
+    private float lastVol;
 
     [Header("Panels")]
     public GameObject mainPanel;
@@ -18,6 +19,20 @@ public class MainPanel : MonoBehaviour
 
     public void Awake(){
         volumen.onValueChanged.AddListener(ChangedVolMaster);
+    }
+
+    public void setMute()
+    {
+        
+        if(mute.isOn){
+            mixer.GetFloat("VolMaster", out lastVol);
+            mixer.SetFloat("VolMaster", -80); 
+        }
+
+        else
+        {
+            mixer.SetFloat("VolMaster", lastVol);
+        }
     }
 
     public void openPanel(GameObject panel){
