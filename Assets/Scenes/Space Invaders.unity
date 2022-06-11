@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LionFishPrefab: {fileID: 4289298167530589518, guid: 506f2ea7079dcf445bc5c8f24e795589, type: 3}
-  maximum: 4
+  maximum: 10
 --- !u!1 &745364925
 GameObject:
   m_ObjectHideFlags: 0

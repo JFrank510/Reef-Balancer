@@ -13,9 +13,10 @@ public class Fish : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        speedX = Random.Range(-3.0f, 3.0f);
-        speedY = Random.Range(-1.5f, 1.5f);
+    { 
+        float negation = Random.Range(-1, 1) < 0 ? -1.0f : 1.0f;
+        speedX = Random.Range(1.0f, 3.0f) * negation;
+        speedY = Random.Range(0.5f, 1.5f) * negation;
         facingRight = true;
 
         rb = this.GetComponent<Rigidbody2D>();
