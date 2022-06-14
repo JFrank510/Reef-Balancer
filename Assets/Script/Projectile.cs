@@ -16,5 +16,6 @@ public class Projectile : MonoBehaviour
     {
         this.destroyed.Invoke();
         Destroy(this.gameObject);
+        Destroy(other.gameObject);
     }
 }
