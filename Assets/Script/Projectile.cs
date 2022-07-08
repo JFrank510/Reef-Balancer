@@ -16,6 +16,6 @@ public class Projectile : MonoBehaviour
     {
         this.destroyed.Invoke();
         Destroy(this.gameObject);
-        Destroy(other.gameObject);
+        if (other.name == "LionFish(Clone)"){Destroy(other.gameObject);}
     }
 }
