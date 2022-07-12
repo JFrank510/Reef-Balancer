@@ -19,7 +19,7 @@ public class InitializeMock : MonoBehaviour
     private void spawnEnemy()
     {
         GameObject a = Instantiate(LionFishPrefab) as GameObject;
-        a.transform.position = new Vector2(Random.Range(-screenBounds.x , screenBounds.x), Random.Range(0, screenBounds.y));
+        a.transform.position = new Vector2(Random.Range(-screenBounds.x + 2 , screenBounds.x - 2), Random.Range(0, screenBounds.y));
     }
 
     private void createMock()

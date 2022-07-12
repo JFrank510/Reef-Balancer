@@ -33,9 +33,9 @@ public class MoveOnClic : MonoBehaviour
     void Update()
     {
         if (this.hasBeenMoved) {
-            this.gameObject.transform.localPosition = new Vector3(startPosX + 0.75f, startPosY, 0);
+            this.gameObject.transform.localPosition = new Vector3(startPosX + 1.5f, startPosY, -1);
         } else {
-            this.gameObject.transform.localPosition = new Vector3(startPosX, startPosY, 0);
+            this.gameObject.transform.localPosition = new Vector3(startPosX, startPosY, -1);
         }
     }
 
