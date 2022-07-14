@@ -15,39 +15,54 @@ public class Player : MonoBehaviour
     
     private float boundaryYMax = -4f;
 
+    private bool flipleft = true; 
+
     private void Update()
+    {
+        move();
+        shoot();
+    }
+
+    private void move()
     {
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
         Vector3 direction = new Vector3(horizontalInput,verticalInput);
         transform.Translate(speed * Time.deltaTime * direction);
-        // if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-        //     this.transform.position += Vector3.left * this.speed * Time.deltaTime;
-        // }
-        // else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-        //     this.transform.position += Vector3.right * this.speed * Time.deltaTime;
-        // }
-
-        if(Input.GetKeyDown(KeyCode.Space)){
-            shoot();
-        }
         direction.x = Mathf.Clamp(transform.position.x, boundaryXMin, boundaryXMax);
         direction.y = Mathf.Clamp(transform.position.y, boundaryYMin, boundaryYMax);
         transform.position = direction;
+        flip(horizontalInput);
     }
 
-    private void shoot(){
-        if(!_redActive){
+    private void shoot()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if(!_redActive)
+            {
 
-            Projectile projectile = Instantiate(this.redPrefab, this.transform.position, Quaternion.identity);
-            projectile.destroyed += RedDestroyed;
-            _redActive = true;
-        }
+                Projectile projectile = Instantiate(this.redPrefab, this.transform.position, Quaternion.identity);
+                projectile.destroyed += RedDestroyed;
+                _redActive = true;
+            }
+        }    
     }
 
-    private void RedDestroyed(){
+    private void RedDestroyed()
+    {
         _redActive = false;
 
+    }
+
+    private void flip(float horizontalInput)
+    {
+        if((flipleft == true && horizontalInput < 0) || (flipleft == false && horizontalInput > 0))
+        {
+            flipleft = !flipleft;
+            transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y);
+
+        }
     }
 
 
