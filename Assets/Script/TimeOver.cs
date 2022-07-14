@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeOver : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class TimeOver : MonoBehaviour
 
     void OpenPanel()
     {
+        Time.timeScale = 0f;
         timeText.text="";
         panel.SetActive(true);
 
@@ -38,9 +40,21 @@ public class TimeOver : MonoBehaviour
 
 
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MinigamesMenu");
     }
 }
