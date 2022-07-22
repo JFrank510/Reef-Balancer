@@ -15,7 +15,13 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         this.destroyed.Invoke();
-        Destroy(this.gameObject);
-        if (other.name == "LionFish(Clone)"){Destroy(other.gameObject);}
+ 
+        if (other.name == "LionFish(Clone)")
+        {
+            Destroy(other.gameObject);
+            Score.updateScore();
+            Destroy(this.gameObject);
+
+        }
     }
 }

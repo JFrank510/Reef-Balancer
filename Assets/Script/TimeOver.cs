@@ -17,7 +17,6 @@ public class TimeOver : MonoBehaviour
         currentTime = duration;
         timeText.text = currentTime.ToString();
         StartCoroutine(TimeIEn());
-        
     }
 
     IEnumerator TimeIEn(){
@@ -35,14 +34,6 @@ public class TimeOver : MonoBehaviour
         Time.timeScale = 0f;
         timeText.text="";
         panel.SetActive(true);
-
-    }
-
-
-
-    void Update()
-    {
-        
     }
 
     public void Restart()
