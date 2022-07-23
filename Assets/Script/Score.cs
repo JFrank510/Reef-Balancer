@@ -11,6 +11,8 @@ public class Score : MonoBehaviour
     public Text scoreTxt;
     public InitializeMock max;
     public Text scoreGameover;
+    public Text scoreWin;
+
     public GameObject panel;
 
     void Start()
@@ -31,6 +33,8 @@ public class Score : MonoBehaviour
     {
         scoreTxt.text = "Score: "+score;
         scoreGameover.text = score+" POINTS";
+        scoreWin.text = score+" POINTS";
+
         if(capturefish == max.maximum)
         {
             OpenPanel();
