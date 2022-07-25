@@ -477,6 +477,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 691091206}
   max: {fileID: 195119284}
   scoreGameover: {fileID: 1590726103}
+  scoreWin: {fileID: 815940100}
   panel: {fileID: 461441028}
 --- !u!1 &162213601
 GameObject:
