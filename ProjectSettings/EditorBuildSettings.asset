@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Space Invaders.unity
     guid: ef358a4529ffd8849b651632428ce2b0
+  - enabled: 1
+    path: Assets/Scenes/HideNSeek.unity
+    guid: 3390db38d0546f44bb2fc85207cad414
   m_configObjects: {}
