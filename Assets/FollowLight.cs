@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FollowLight : MonoBehaviour
 {
-    public  SelectedTool st;
-    public UnityEngine.Rendering.Universal.Light2D lt;
+    private TMP_Text battery;
+    private SelectedTool st;
+    private HideNSeek gameLogic;
+    private UnityEngine.Rendering.Universal.Light2D lt;
     public float batteryLevel = 100.0f;
     // Start is called before the first frame update
     void Start()
     {
+        gameLogic = this.transform.parent.GetComponent<HideNSeek>();
+        battery = GameObject.Find("Text Battery").GetComponent<TMP_Text>();
         st = GameObject.Find("tools").GetComponent<SelectedTool>();
         lt = this.transform.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
     }
@@ -17,16 +22,37 @@ public class FollowLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (st.isCorrectTool(2) && batteryLevel >= 100.0f) {
-            lt.intensity = 0.4f;
-        } else if (batteryLevel <= 100.0f) {
+        // If light is on and we have battery, drain it
+        if (lt.intensity > 0.2f && batteryLevel > 0.0f) {
+            batteryLevel -= Time.deltaTime * 8.0f;
+        } 
+        
+        // if light is off and battery is below 100%, recharge
+        if (lt.intensity < 0.2f && batteryLevel < 100.0f)  {
             batteryLevel += Time.deltaTime * 12.0f;
-            Debug.Log("Battery Level: " + batteryLevel);
+
+            // Fix in case we have more than 100%
+            if (batteryLevel > 100.0f) {
+                batteryLevel = 100.0f;
+            }
         }
 
-        Vector3 mousePos = Input.mousePosition;
+        // when drained
+        if (batteryLevel < 0.0f) {
+            // turn off and put battery on 0%
+            lt.intensity = 0.0f;
+            batteryLevel = 0.0f;
+        } 
+        // if we have selected the lamp and the battery is > 99% we can turn on
+        else if (st.isCorrectTool(2) && batteryLevel >= 99.0f && gameLogic.isNight) {
+            lt.intensity = 0.6f;
+        }
 
-        
-        this.gameObject.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);;
+        battery.SetText(((int) batteryLevel).ToString() + '%');
+
+        // The light must follow the mouse.
+        Vector3 newMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        newMousePos.z = 1;
+        this.gameObject.transform.localPosition = newMousePos;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeleteOnClic : MonoBehaviour
 {
     private SelectedTool st;
+    private HideNSeek hs;
 
     public Sprite[] sprites;
     public float[] scales;
@@ -14,6 +15,7 @@ public class DeleteOnClic : MonoBehaviour
     void Start()
     {
         st = GameObject.Find("tools").GetComponent<SelectedTool>();
+        hs = GameObject.Find("Main Camera").GetComponent<HideNSeek>();
 
         int random = Random.Range(0, sprites.Length);
 
@@ -26,6 +28,8 @@ public class DeleteOnClic : MonoBehaviour
     private void OnMouseDown()
     {
         if (st.isCorrectTool(3)) {
+            hs.UpdateScore(10);
+            hs.remainingFishes--;
             Destroy(this.gameObject);
         } else {
             // play sound
