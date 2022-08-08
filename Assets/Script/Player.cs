@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     public float speed = 5.0f;
     private bool _redActive;
 
-    private float boundaryXMin = -10f;
-    private float boundaryXMax = 10f;
+    private float boundaryXMin = -9f;
+    private float boundaryXMax = 9f;
 
     private float boundaryYMin = -4f;
     
