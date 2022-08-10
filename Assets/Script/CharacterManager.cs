@@ -19,7 +19,7 @@ public class CharacterManager : MonoBehaviour
     }
 
     private void Start(){
-        if(characters.Length > 0 && currentCharacter == null){
+        if (characters.Length > 0) {
             currentCharacter = characters[0];
         }
     }
