@@ -15,18 +15,24 @@ public class Score : MonoBehaviour
 
     public GameObject panel;
 
+    private static Combo cmb;
+
     void Start()
     {
         panel.SetActive(false);
         capturefish = 0;
         score = 0;
         Time.timeScale = 1f;
+        cmb = this.transform.GetComponent<Combo>();
     }
     
-    public static void updateScore()
+    public static void updateScore(int points)
     {
-        score++;
-        capturefish++;
+        // Get the current combo
+        int combo = cmb.GetCombo();
+
+        // Update the score
+        score += combo * points;
     }
 
     void LateUpdate()
