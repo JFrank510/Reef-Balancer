@@ -40,5 +40,10 @@ public class Projectile : MonoBehaviour
             // Destroy projectile
             Destroy(this.gameObject);
         }
+
+        if (other.name == "Range") {
+            Score.ResetCombo();
+            Destroy(this.gameObject);
+        }
     }
 }

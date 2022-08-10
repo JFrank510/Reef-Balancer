@@ -41,4 +41,10 @@ public class Combo : MonoBehaviour
 
         return combo;
     }
+
+    public void ResetCombo()
+    {
+        duration = 0.0f;
+        combo = 0;
+    }
 }

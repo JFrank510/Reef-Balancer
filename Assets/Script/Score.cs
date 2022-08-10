@@ -35,6 +35,11 @@ public class Score : MonoBehaviour
         score += combo * points;
     }
 
+    public static void ResetCombo()
+    {
+        cmb.ResetCombo();
+    }
+
     void LateUpdate()
     {
         scoreTxt.text = "Score: "+score;
