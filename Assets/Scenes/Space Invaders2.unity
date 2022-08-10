@@ -2710,7 +2710,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oxygen: 100
   oxygenBar: {fileID: 386832588}
+  OxygenTankPrefab: {fileID: 5484430306297716521, guid: 6fda7d8da76073c4abf4c887aa296576, type: 3}
   decreasePerMinute: 500
+  tankSpawned: 0
 --- !u!1 &1590726101
 GameObject:
   m_ObjectHideFlags: 0

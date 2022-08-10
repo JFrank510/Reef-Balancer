@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     private void Start(){
-        Instantiate(CharacterManager.instance.currentCharacter.prefab,transform.position,Quaternion.identity);
+        GameObject track = (GameObject) Instantiate(CharacterManager.instance.currentCharacter.prefab,transform.position,Quaternion.identity);
+        track.name = "Player";
     }
 }
