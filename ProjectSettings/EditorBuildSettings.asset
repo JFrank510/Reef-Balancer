@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectCharacterCapture.unity
     guid: b3e7e77f164604d4dab99ab48b456eb0
+  - enabled: 1
+    path: Assets/Scenes/Space Invaders2.unity
+    guid: 5351a053c51c29d478fbcaeecb462747
+  - enabled: 1
+    path: Assets/Scenes/SelectCharacterCaptureHard.unity
+    guid: e58441d7a92b11c4cbeb7d5f623a6b1f
   m_configObjects: {}
