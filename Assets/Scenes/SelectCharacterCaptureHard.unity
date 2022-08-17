@@ -386,7 +386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 150}
+  m_AnchoredPosition: {x: 100, y: 125}
   m_SizeDelta: {x: 700, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228438971
@@ -423,7 +423,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\xA1Salva el arrecife del ataque de los peces le\xF3n, CAPTURALOS ANTES
-    DE QUE SE AGOTE EL TIEMPO!"
+    DE QUE SE AGOTE EL TIEMPO Y TEN CUIDADO CON TU OXIGENO!"
 --- !u!222 &228438972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -977,7 +977,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 53}
+  m_AnchoredPosition: {x: 5, y: 30}
   m_SizeDelta: {x: 289.9166, y: 80.6152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &736527617
