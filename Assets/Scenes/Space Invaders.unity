@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061c53b1e7ee6c74ca30afce3db6f553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 943371596}
+  panel: {fileID: 461441028}
   timeText: {fileID: 1228729768}
   duration: 60
   currentTime: 0
@@ -477,9 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTxt: {fileID: 691091206}
-  max: {fileID: 195119284}
-  scoreGameover: {fileID: 1590726103}
-  scoreWin: {fileID: 815940100}
+  scoreGameover: {fileID: 815940100}
   panel: {fileID: 461441028}
 --- !u!114 &102563653
 MonoBehaviour:
