@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 102563650}
   - component: {fileID: 102563652}
   - component: {fileID: 102563653}
+  - component: {fileID: 102563654}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -477,6 +478,22 @@ MonoBehaviour:
   duration: 0
   combo: 0
   comboCounter: {fileID: 0}
+--- !u!114 &102563654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102563645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061c53b1e7ee6c74ca30afce3db6f553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 943371596}
+  timeText: {fileID: 1228729768}
+  duration: 60
+  currentTime: 0
 --- !u!1 &162213601
 GameObject:
   m_ObjectHideFlags: 0
