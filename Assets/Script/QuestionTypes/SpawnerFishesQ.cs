@@ -40,11 +40,11 @@ public class SpawnerFishesQ : MonoBehaviour
     public GameObject PinkFishPrefabQ;
     private Vector2 screenBounds;
     
-    private int spawnLFQ;
+    public int spawnLFQ;
 
-    private int spawnGFQ;
+    public int spawnGFQ;
 
-    private int spawnPFQ;
+    public int spawnPFQ;
 
     void Start()
     {
@@ -84,7 +84,5 @@ public class SpawnerFishesQ : MonoBehaviour
             spawnPinkFish();
         }
     }
-
-    
 
 }
