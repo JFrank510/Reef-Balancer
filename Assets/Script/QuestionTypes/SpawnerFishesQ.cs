@@ -42,28 +42,23 @@ public class SpawnerFishesQ : MonoBehaviour
     public int spawnLFQ;
     public int spawnGFQ;
     public int spawnPFQ;
-     public List<int> spawnF = new List<int>();
+    public List<int> spawnF = new List<int>();
 
-    void Start()
+    private void Start() {
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+    }
+
+    public void DoSpawn()        
     {
         RandomSpawn();
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         spawnTypesFishes();
-        foreach (int item in spawnF)
-        {
-            Debug.Log(item.ToString());
-        }
     }
     
-    public List<int> RandomSpawn()
+    public void RandomSpawn()
     {
         spawnLFQ =  Random.Range(1, 4);
         spawnGFQ =  Random.Range(1, 4);
         spawnPFQ =  Random.Range(1, 4);
-        spawnF.Add(spawnLFQ);
-        spawnF.Add(spawnGFQ);
-        spawnF.Add(spawnPFQ);
-        return spawnF;
     }
     private void spawnLionFish()
     {
