@@ -5,9 +5,7 @@ using UnityEngine;
 public class Runner : MonoBehaviour
 {
     private bool gameRunning;
-    private float structureCooldown = 5.0f;
     private VerticalPlayer player;
-    public Hashtable paths;
 
     // Start is called before the first frame update
     void Start()
@@ -15,10 +13,6 @@ public class Runner : MonoBehaviour
         gameRunning = true;
 
         player = GameObject.Find("Player").GetComponent<VerticalPlayer>();
-
-        paths = new Hashtable();
-        float[] values =  new float[10];
-        paths.Add(0, values);
     }
 
     // Update is called once per frame
@@ -32,15 +26,6 @@ public class Runner : MonoBehaviour
         }
 
         if (gameRunning) {
-            if (structureCooldown <= 0) {
-                // Select next structure
-                        
-                // Create Structure
-
-                structureCooldown = 5.0f;
-            } else {
-                structureCooldown -= Time.deltaTime;
-            }
         }
     }
 
