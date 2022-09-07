@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 54922566}
   - component: {fileID: 54922565}
   m_Layer: 5
-  m_Name: AnswerAButton
+  m_Name: AnswerA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,7 +946,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223740744
 GameObject:
@@ -2002,7 +2002,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &635715873
 MonoBehaviour:
@@ -2022,7 +2022,6 @@ MonoBehaviour:
   spawnLFQ: 0
   spawnGFQ: 0
   spawnPFQ: 0
-  spawnF: 
 --- !u!1 &723153329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2290,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806498478}
   m_CullTransparentMesh: 1
+--- !u!1 &824836734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 824836736}
+  - component: {fileID: 824836735}
+  - component: {fileID: 824836737}
+  m_Layer: 0
+  m_Name: MasterControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &824836735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824836734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21f3146ad17ce4cbe4f9b39bda0205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnswerA: {fileID: 2102068483}
+  AnswerB: {fileID: 1664540116}
+  AnswerC: {fileID: 1555270167}
+  AnswerD: {fileID: 1598774630}
+--- !u!4 &824836736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824836734}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 566.0738, y: 265.8213, z: -170.80505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &824836737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824836734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c49094cee461b04cb382f367119a761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestionImg: {fileID: 1399695417}
 --- !u!1 &953656985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,7 +2714,7 @@ GameObject:
   - component: {fileID: 1030275982}
   - component: {fileID: 1030275981}
   m_Layer: 5
-  m_Name: AnswerBButton
+  m_Name: AnswerB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2922,7 +2983,7 @@ GameObject:
   - component: {fileID: 1355930174}
   - component: {fileID: 1355930173}
   m_Layer: 5
-  m_Name: AnswerDButton
+  m_Name: AnswerD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3060,7 +3121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1399695418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3291,7 +3352,7 @@ GameObject:
   - component: {fileID: 1555270170}
   - component: {fileID: 1555270169}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3496,7 +3557,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584323145
 GameObject:
@@ -3586,7 +3647,7 @@ GameObject:
   - component: {fileID: 1598774633}
   - component: {fileID: 1598774632}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3721,7 +3782,7 @@ GameObject:
   - component: {fileID: 1664540119}
   - component: {fileID: 1664540118}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3857,7 +3918,7 @@ GameObject:
   - component: {fileID: 1712528416}
   - component: {fileID: 1712528415}
   m_Layer: 5
-  m_Name: AnswerCButton
+  m_Name: AnswerC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3992,14 +4053,13 @@ GameObject:
   - component: {fileID: 1747998468}
   - component: {fileID: 1747998467}
   - component: {fileID: 1747998465}
-  - component: {fileID: 1747998472}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1747998465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4108,31 +4168,13 @@ RectTransform:
   - {fileID: 56027068}
   - {fileID: 621480358}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1747998472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747998464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e21f3146ad17ce4cbe4f9b39bda0205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  test: 
-  imgF: {fileID: 0}
-  answerA: {fileID: 0}
-  answerB: {fileID: 0}
-  answerC: {fileID: 0}
-  answerD: {fileID: 0}
 --- !u!1 &1792554731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4360,7 +4402,7 @@ GameObject:
   - component: {fileID: 2102068486}
   - component: {fileID: 2102068485}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

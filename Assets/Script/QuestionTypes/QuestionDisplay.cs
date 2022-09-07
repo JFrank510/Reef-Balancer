@@ -1,19 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionDisplay : MonoBehaviour
 {
-    private static SpawnerFishesQ spawn;
-    public List<int> test = new List<int>();
-
-    public GameObject imgF;
-
-    public GameObject answerA;
-    public GameObject answerB;
-    public GameObject answerC;
-    public GameObject answerD;
-    public static string newQ;
+    public GameObject AnswerA;
+    public GameObject AnswerB;
+    public GameObject AnswerC;
+    public GameObject AnswerD;
     public static string newA;
     public static string newB;
     public static string newC;
@@ -22,24 +17,10 @@ public class QuestionDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawn = FindObjectOfType<SpawnerFishesQ>();
-        // El panel esta oculto de las preguntas
-
-        // Mostrar los peces
-        spawn.DoSpawn();
-
-        // Esperar n segundos
-
-        // Mostrar panel de preguntas
-
-        // Remover peces
-
-        // Cuando se resuelva regresa a mostrar peces
-        // Debug.Log(spawn.spawnLFQ);
-        // Debug.Log(spawn.spawnGFQ);
-        // Debug.Log(spawn.spawnPFQ);
-
-        
+        // AnswerA.GetComponent<Text>().text = newA;
+        // AnswerB.GetComponent<Text>().text = newB;
+        // AnswerC.GetComponent<Text>().text = newC;
+        // AnswerD.GetComponent<Text>().text = newD;
     }
 
     // Update is called once per frame

@@ -42,7 +42,6 @@ public class SpawnerFishesQ : MonoBehaviour
     public int spawnLFQ;
     public int spawnGFQ;
     public int spawnPFQ;
-    public List<int> spawnF = new List<int>();
 
     private void Start() {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
