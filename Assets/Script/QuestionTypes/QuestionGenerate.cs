@@ -7,26 +7,27 @@ public class QuestionGenerate : MonoBehaviour
     private static SpawnerFishesQ spawn;
     public static string correctA;
     public GameObject QuestionImg;
-    private int A;
-    private int B;
-    private int C;
-    private int D;
+    private int A,B,C,D,randomValue;
+
+    private string AF,BF,CF,DF;
+
+    private int[] swapAns = new int[4];
+
+    public System.Random random = new System.Random();
 
     // Start is called before the first frame update
     void Start()
     {
-        GenerateAnswer();
         spawn = FindObjectOfType<SpawnerFishesQ>();
+        spawn.DoSpawn();
+        GenerateAnswers();
         // El panel esta oculto de las preguntas
         // Mostrar los peces
-        spawn.DoSpawn();
         QuestionImg.SetActive(true);
-        QuestionDisplay.newA = "XD";
-        QuestionDisplay.newB = "YEAH";
-        QuestionDisplay.newC = "SIIIUUU";
-        QuestionDisplay.newD = "OH NO";
-        Debug.Log(A);
-
+        QuestionDisplay.newA = AF;
+        QuestionDisplay.newB = BF;
+        QuestionDisplay.newC = CF;
+        QuestionDisplay.newD = DF;
         // Esperar n segundos
 
         // Mostrar panel de preguntas
@@ -41,12 +42,32 @@ public class QuestionGenerate : MonoBehaviour
         
     }
 
-    void GenerateAnswer(){
-        A =  Random.Range(1, 8);
-        B =  Random.Range(1, 8);
-        C =  Random.Range(1, 8);
-        D =  Random.Range(1, 8);
-        A.ToString();
+    void GenerateAnswers(){
+        A =  Random.Range(spawn.spawnLFQ + 1, 8);
+        B =  Random.Range(A + 1 , 10);
+        C =  Random.Range(B + 1, 12);
+        D =  Random.Range(D + 1, 14);
+        swapAns = new int[4] { A, B, C, D };
+        randomValue = swapAns[random.Next(0, swapAns.Length)];
+        if(randomValue == A){
+            A = spawn.spawnLFQ;
+        }
+
+        else if(randomValue == B){
+            B = spawn.spawnLFQ;
+        }
+
+        else if(randomValue == C){
+            C = spawn.spawnLFQ;
+        }
+
+        else if(randomValue == D){
+            D = spawn.spawnLFQ;
+        }
+        AF = A.ToString();
+        BF = B.ToString();
+        CF = C.ToString();
+        DF = D.ToString();
     }
 
     // Update is called once per frame
