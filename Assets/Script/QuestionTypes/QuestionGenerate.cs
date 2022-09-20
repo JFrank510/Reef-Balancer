@@ -5,7 +5,8 @@ using UnityEngine;
 public class QuestionGenerate : MonoBehaviour
 {
     private static SpawnerFishesQ spawn;
-    public static string correctA;
+    public static string currentAnswer, correctAnswer;
+    
     public GameObject QuestionImg;
     private int A,B,C,D,randomValue;
 
@@ -21,13 +22,7 @@ public class QuestionGenerate : MonoBehaviour
         spawn = FindObjectOfType<SpawnerFishesQ>();
         spawn.DoSpawn();
         GenerateAnswers();
-        // El panel esta oculto de las preguntas
-        // Mostrar los peces
-        QuestionImg.SetActive(true);
-        QuestionDisplay.newA = AF;
-        QuestionDisplay.newB = BF;
-        QuestionDisplay.newC = CF;
-        QuestionDisplay.newD = DF;
+        QuestionsView();
         // Esperar n segundos
 
         // Mostrar panel de preguntas
@@ -42,7 +37,7 @@ public class QuestionGenerate : MonoBehaviour
         
     }
 
-    void GenerateAnswers(){
+    public void GenerateAnswers(){
         A =  Random.Range(spawn.spawnLFQ + 1, 8);
         B =  Random.Range(A + 1 , 10);
         C =  Random.Range(B + 1, 12);
@@ -68,11 +63,41 @@ public class QuestionGenerate : MonoBehaviour
         BF = B.ToString();
         CF = C.ToString();
         DF = D.ToString();
+        correctAnswer = spawn.spawnLFQ.ToString();
+        correctAnswer2 = spawn.spawnGFQ.ToString();
+        correctAnswer3 = spawn.spawnPFQ.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void QuestionsView()
     {
+        QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie";
+        QuestionImg.SetActive(true);
+        QuestionDisplay.newA = AF;
+        QuestionDisplay.newB = BF;
+        QuestionDisplay.newC = CF;
+        QuestionDisplay.newD = DF;
+        CheckAnswers();
+    }
+    public void CheckAnswers()
+    {
+        // Debug.Log(correctAnswer);
+        // Debug.Log(answer);
+        if (AF == correctAnswer){
+            currentAnswer = "A";
+        }
+
+        if (BF == correctAnswer){
+            currentAnswer = "B";
+        }
+
+        if (CF == correctAnswer){
+            currentAnswer = "C";
+        }
+
+        if (DF == correctAnswer){
+            currentAnswer = "D";
+        }
         
     }
+
 }
