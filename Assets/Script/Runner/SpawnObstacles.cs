@@ -5,23 +5,26 @@ using UnityEngine;
 public class SpawnObstacles : MonoBehaviour
 {
     public Hashtable paths;
-    public float cooldown = 5.0f;
+    public GameObject trashPrefab;
+    public float cooldown;
     private bool canSpawn;
     private int current;
 
+    public float CNDWN;
     // Start is called before the first frame update
     void Start()
     {
+        cooldown = CNDWN;
         paths = new Hashtable();
 
         // Defining Routes:
-        int[] zeroRoute = {0, 1, 2, 3, 4, 5, 6};
-        int[] oneRoute = {0, 1, 2, 3, 5};
-        int[] twoRoute = {0, 1, 2, 3, 4, 6};
-        int[] threeRoute = {0, 1, 2, 3};
-        int[] fourRoute = {0, 1, 2, 4, 5, 6};
-        int[] fiveRoute = {0, 1, 4, 5};
-        int[] sixRoute = {0, 2, 4, 6};
+        int[] zeroRoute = { 1, 2, 3, 4, 5, 6};
+        int[] oneRoute = { 1, 2, 3, 5};
+        int[] twoRoute = { 1, 2, 3, 4, 6};
+        int[] threeRoute = { 1, 2, 3};
+        int[] fourRoute = { 1, 2, 4, 5, 6};
+        int[] fiveRoute = { 1, 4, 5};
+        int[] sixRoute = { 2, 4, 6};
 
         paths.Add(0, zeroRoute);
         paths.Add(1, oneRoute);
@@ -35,12 +38,12 @@ public class SpawnObstacles : MonoBehaviour
         current = 0;
     }
 
-    void StopSpawn()
+    public void StopSpawn()
     {
         canSpawn = false;
     }
 
-    void StartSpawn()
+    public void StartSpawn()
     {
         canSpawn = true;
     }
@@ -54,7 +57,41 @@ public class SpawnObstacles : MonoBehaviour
         current = routes[Random.Range(0, routes.Length)];
 
         // Spawn Obstacle
-        Debug.Log(current);
+        Spawn(current);
+    }
+
+    void Spawn(int option)
+    {
+        switch(option) {
+            case 1:
+                GameObject a = Create(-2.25f);
+                break;
+            case 2:
+                GameObject b = Create(0.0f);
+                break;
+            case 3:
+                GameObject c = Create(-2.25f);
+                GameObject d = Create(0f);
+                break;
+            case 4:
+                GameObject e = Create(2.25f);
+                break;
+            case 5:
+                GameObject f = Create(2.25f);
+                GameObject g = Create(-2.25f);
+                break;
+            case 6:
+                GameObject h = Create(2.25f);
+                GameObject i = Create(0.0f);
+                break;
+        }
+    }
+
+    GameObject Create(float positionY) {
+        GameObject a = Instantiate(trashPrefab) as GameObject;
+        a.transform.position = new Vector2(10, positionY);
+
+        return a;
     }
 
     // Update is called once per frame
@@ -65,7 +102,7 @@ public class SpawnObstacles : MonoBehaviour
                 SpawnNewStructure();
 
                 // Restart timer
-                cooldown = 5.0f;
+                cooldown = CNDWN;
             } else {
                 cooldown -= Time.deltaTime;
             }
