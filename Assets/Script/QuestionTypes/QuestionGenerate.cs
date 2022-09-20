@@ -64,8 +64,8 @@ public class QuestionGenerate : MonoBehaviour
         CF = C.ToString();
         DF = D.ToString();
         correctAnswer = spawn.spawnLFQ.ToString();
-        correctAnswer2 = spawn.spawnGFQ.ToString();
-        correctAnswer3 = spawn.spawnPFQ.ToString();
+        //correctAnswer2 = spawn.spawnGFQ.ToString();
+        //correctAnswer3 = spawn.spawnPFQ.ToString();
     }
 
     public void QuestionsView()
