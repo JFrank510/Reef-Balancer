@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class VerticalPlayer : MonoBehaviour
 {
-    public int lives = 3;
+    public int lives = 1;
+    public bool isVulnerable;
     private float position = 0.0f;
     private float speedY = 0.0f;
     public float SPEED_Y;
+    public float tick;
 
     private Vector2 screenBounds;
     private Rigidbody2D rb;
@@ -15,6 +17,8 @@ public class VerticalPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isVulnerable = true;
+        tick = 1.5f;
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0.0f, 0.0f);
         rb.isKinematic = false;
@@ -26,6 +30,13 @@ public class VerticalPlayer : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (tick <= 0) {
+            isVulnerable = true;
+            tick = 1.5f;
+        } else if (tick > 0 && !isVulnerable) {
+            tick -= Time.deltaTime;
+        }
     }
 
     void Move()
@@ -83,5 +94,10 @@ public class VerticalPlayer : MonoBehaviour
 
             speedY = -SPEED_Y;
         }
+    }
+
+    public void Invulnerable()
+    {
+        isVulnerable = false;
     }
 }
