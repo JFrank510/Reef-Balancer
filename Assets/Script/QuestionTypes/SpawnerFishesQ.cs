@@ -50,9 +50,11 @@ public class SpawnerFishesQ : MonoBehaviour
     public GameObject LionFishPrefabQ;
     public GameObject GreenPrefabQ;
     public GameObject PinkFishPrefabQ;
+    public GameObject BlueFishPrefabQ;
     private Vector2 screenBounds;
-
-    public int spawnGFQ, spawnPFQ, spawnLFQ;
+    public int spawnBFQ,spawnGFQ, spawnPFQ, spawnLFQ,spawnTypeNumber;
+    public List<int> listNumbersSpawn = new List<int>();
+    private System.Random random = new System.Random();
 
     private void Start() {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
@@ -63,12 +65,24 @@ public class SpawnerFishesQ : MonoBehaviour
         RandomSpawn();
         spawnTypesFishes();
     }
-    
+    public void RandomNumberSpawn()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            do {
+                spawnTypeNumber = random.Next(1, 5);
+            } while (listNumbersSpawn.Contains(spawnTypeNumber));
+            listNumbersSpawn.Add(spawnTypeNumber);
+        }
+    }
+
     public void RandomSpawn()
     {
-        spawnLFQ =  Random.Range(1, 4);
-        spawnGFQ =  Random.Range(1, 4);
-        spawnPFQ =  Random.Range(1, 4);
+        RandomNumberSpawn();
+        spawnLFQ =  listNumbersSpawn[0];
+        spawnGFQ =  listNumbersSpawn[1];
+        spawnPFQ =  listNumbersSpawn[2];
+        spawnBFQ =  listNumbersSpawn[3];
     }
     private void spawnLionFish()
     {
@@ -85,6 +99,13 @@ public class SpawnerFishesQ : MonoBehaviour
         GameObject c = Instantiate(PinkFishPrefabQ) as GameObject;
         c.transform.position = new Vector2(Random.Range(-screenBounds.x + 2 , screenBounds.x - 2), Random.Range(0, screenBounds.y));
     }
+
+    private void spawnBlueFish()
+    {
+         GameObject d = Instantiate(BlueFishPrefabQ) as GameObject;
+        d.transform.position = new Vector2(Random.Range(-screenBounds.x + 2 , screenBounds.x - 2), Random.Range(0, screenBounds.y));
+    }
+
     private void spawnTypesFishes()
     {
         for (int i = 0; i < spawnLFQ; i++) {
@@ -97,6 +118,10 @@ public class SpawnerFishesQ : MonoBehaviour
 
         for (int k = 0; k < spawnPFQ; k++) {
             spawnPinkFish();
+        }
+
+        for (int k = 0; k < spawnBFQ; k++) {
+            spawnBlueFish();
         }
     }
 

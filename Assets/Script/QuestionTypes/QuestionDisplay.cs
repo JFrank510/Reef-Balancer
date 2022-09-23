@@ -6,21 +6,20 @@ using UnityEngine.UI;
 public class QuestionDisplay : MonoBehaviour
 {
     public GameObject screenQuestion,answerA,answerB,answerC,answerD;
-    public static string newQuestion,newA,newB,newC,newD;
-
-
+    public GameObject screenQuestionI,answerIA,answerIB,answerIC,answerID;
+    public static string newQuestion,newA,newB,newC,newD,questionType;
+    public static Sprite newIA,newIB,newIC,newID;
+    private string[] swapQuestion = new string[2];
+    private System.Random random = new System.Random();
+    public static int randomQuestion;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(PushTextOnScreen());
+        // StartCoroutine(PushTextOnScreen());
+        ChooseQuestionType();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     IEnumerator PushTextOnScreen(){
         yield return new WaitForSeconds(0.25f);
@@ -29,5 +28,23 @@ public class QuestionDisplay : MonoBehaviour
         answerB.GetComponent<Text>().text = newB;
         answerC.GetComponent<Text>().text = newC;
         answerD.GetComponent<Text>().text = newD;
+    }
+
+    IEnumerator PushImagenOnScreen(){
+        yield return new WaitForSeconds(0.25f);
+        screenQuestionI.GetComponent<Text>().text = newQuestion;
+        answerIA.GetComponent<Image>().sprite = newIA;
+        answerIB.GetComponent<Image>().sprite = newIB;
+        answerIC.GetComponent<Image>().sprite = newIC;
+        answerID.GetComponent<Image>().sprite = newID;
+    }
+    public void ChooseQuestionType(){
+        swapQuestion = new string[] {"Text","Image"};
+        randomQuestion = random.Next(swapQuestion.Length);
+        // randomQuestion = 0;
+        if(randomQuestion == 0)
+            StartCoroutine(PushTextOnScreen());
+        if(randomQuestion == 1)
+            StartCoroutine(PushImagenOnScreen());
     }
 }
