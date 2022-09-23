@@ -16,6 +16,8 @@ public class QuestionGenerate : MonoBehaviour
 
     private Sprite[] answersImage = new Sprite[4];
 
+    private GameObject tempAnswer;
+
     private List<int> listNumbers = new List<int>();
     private System.Random random = new System.Random();
 
@@ -26,6 +28,7 @@ public class QuestionGenerate : MonoBehaviour
         spawn.DoSpawn();
         QuestionsView();
         AnswersSort();
+        GenerateAnswersImage();
     }
 
     public void RandomAnswers()
@@ -73,6 +76,18 @@ public class QuestionGenerate : MonoBehaviour
 
     public void GenerateAnswersImage(){
        answersImage = new Sprite[] {AnswerAImg,AnswerBImg,AnswerCImg,AnswerDImg};
+        // for (int i = 0; i < answersImage.Length; i++) {
+        //     int rnd = Random.Range(0, answersImage.Length);
+        //     tempAnswer = answersImage[rnd];
+        //     answersImage[rnd] = answersImage[i];
+        //     answersImage[i] = tempAnswer;
+        //  }
+
+        Debug.Log(answersImage);
+        // foreach(int value in answersImage)
+        // {
+        //     Debug.Log(value);
+        // }
     }
 
     public void CheckAnswers(string Answer)
@@ -178,7 +193,8 @@ public class QuestionGenerate : MonoBehaviour
         if(QuestionDisplay.randomQuestion == 1)
         {
             panelQuestionI.SetActive(true);
-            randomQuestion = Random.Range(1,4);
+            // randomQuestion = Random.Range(1,3);
+            randomQuestion = 1;
             if(randomQuestion == 1)
             {
                 QuestionDisplay.newQuestion = "Cual especie observaste mas?:";
