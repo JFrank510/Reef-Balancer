@@ -7,18 +7,20 @@ public class QuestionGenerate : MonoBehaviour
     private static SpawnerFishesQ spawn;
     public static string currentAnswer, correctAnswer;
     public GameObject QuestionImg,QuestionImg2,QuestionImg3,QuestionImg4,panelQuestionT,panelQuestionI;
-    public Sprite AnswerAImg,AnswerBImg,AnswerCImg,AnswerDImg;
-    private int A,B,C,D,randomQuestion,randomAnswer,randomNumber,higherValue,lessValue;
+    public GameObject AnswerAImg,AnswerAImg2,AnswerAImg3,AnswerAImg4;
+    public GameObject AnswerBImg,AnswerBImg2,AnswerBImg3,AnswerBImg4;
+    public GameObject AnswerCImg,AnswerCImg2,AnswerCImg3,AnswerCImg4;
+    public GameObject AnswerDImg,AnswerDImg2,AnswerDImg3,AnswerDImg4;
+    private int A,B,C,D,randomQuestion,randomAnswer,randomNumber,higherValue,lessValue,randomArrayNumber;
 
     private string AF,BF,CF,DF;
+    private string AI,BI,CI,DI;
 
+    private int AIF,BIF,CIF,DIF;
     private int[] swapAns = new int[4];
-
-    private Sprite[] answersImage = new Sprite[4];
-
-    private GameObject tempAnswer;
-
     private List<int> listNumbers = new List<int>();
+    private List<int> listArrayNumber = new List<int>();
+    private string[] answersImage = new string[4];
     private System.Random random = new System.Random();
 
     // Start is called before the first frame update
@@ -27,8 +29,6 @@ public class QuestionGenerate : MonoBehaviour
         spawn = FindObjectOfType<SpawnerFishesQ>();
         spawn.DoSpawn();
         QuestionsView();
-        AnswersSort();
-        GenerateAnswersImage();
     }
 
     public void RandomAnswers()
@@ -74,21 +74,126 @@ public class QuestionGenerate : MonoBehaviour
         correctAnswer = spawnType.ToString();
     }
 
-    public void GenerateAnswersImage(){
-       answersImage = new Sprite[] {AnswerAImg,AnswerBImg,AnswerCImg,AnswerDImg};
-        // for (int i = 0; i < answersImage.Length; i++) {
-        //     int rnd = Random.Range(0, answersImage.Length);
-        //     tempAnswer = answersImage[rnd];
-        //     answersImage[rnd] = answersImage[i];
-        //     answersImage[i] = tempAnswer;
-        //  }
-
-        Debug.Log(answersImage);
-        // foreach(int value in answersImage)
+    public void AnswersSort()
+    {
+        spawn.listNumbersSpawn.Sort();
+        // foreach(int value in spawn.listNumbersSpawn)
         // {
         //     Debug.Log(value);
         // }
+        higherValue = spawn.listNumbersSpawn[3];
+        lessValue = spawn.listNumbersSpawn[0];
+        // Debug.Log(higherValue);
+        // Debug.Log(lessValue);
     }
+
+
+     public void GenerateAnswersImage(){
+        AnswersSort();
+        answersImage = new string[]{"LionFish","GreenFish","PinkFish","BlueFish"};
+        for (int i = 0; i < 4; i++)
+        {
+            do {
+                randomArrayNumber = random.Next(0, 4);
+            } while (listArrayNumber.Contains(randomArrayNumber));
+            listArrayNumber.Add(randomArrayNumber);
+        }
+        AIF = listArrayNumber[0];
+        BIF = listArrayNumber[1];
+        CIF = listArrayNumber[2];
+        DIF = listArrayNumber[3];
+
+        AI = answersImage[AIF];
+        BI = answersImage[BIF];
+        CI = answersImage[CIF];
+        DI = answersImage[DIF];
+     }
+    public void DisplayImageButton(){
+        if(AI == "LionFish"){
+            AnswerAImg.SetActive(true);
+        }
+
+        if(AI == "GreenFish"){
+            AnswerAImg2.SetActive(true);
+        }
+
+        if(AI == "PinkFish"){
+            AnswerAImg3.SetActive(true);
+        }
+        
+        if(AI == "BlueFish"){
+            AnswerAImg4.SetActive(true);
+        }
+
+        if(BI == "LionFish"){
+            AnswerBImg.SetActive(true);
+        }
+
+        if(BI == "GreenFish"){
+            AnswerBImg2.SetActive(true);
+        }
+
+        if(BI == "PinkFish"){
+            AnswerBImg3.SetActive(true);
+        }
+        
+        if(BI == "BlueFish"){
+            AnswerBImg4.SetActive(true);
+        }
+
+        if(CI == "LionFish"){
+            AnswerCImg.SetActive(true);
+        }
+
+        if(CI == "GreenFish"){
+            AnswerCImg2.SetActive(true);
+        }
+
+        if(CI == "PinkFish"){
+            AnswerCImg3.SetActive(true);
+        }
+        
+        if(CI == "BlueFish"){
+            AnswerCImg4.SetActive(true);
+        }
+
+        if(DI == "LionFish"){
+            AnswerDImg.SetActive(true);
+        }
+
+        if(DI == "GreenFish"){
+            AnswerDImg2.SetActive(true);
+        }
+
+        if(DI == "PinkFish"){
+            AnswerDImg3.SetActive(true);
+        }
+        
+        if(DI == "BlueFish"){
+            AnswerDImg4.SetActive(true);
+        }
+    }
+    
+    // public void GenerateAnswersImage(){
+    //     AnswersSort();
+    //     // answersImage = new Sprite[] {AnswerAImg,AnswerBImg,AnswerCImg,AnswerDImg};
+    //     // for (int i = 0; i < 4; i++)
+    //     // {
+    //     //     do {
+    //     //         randomArrayNumber = random.Next(0, 4);
+    //     //     } while (listArrayNumber.Contains(randomArrayNumber));
+    //     //     listArrayNumber.Add(randomArrayNumber);
+    //     // }
+
+    //     // AIF = listArrayNumber[0];
+    //     // BIF = listArrayNumber[1];
+    //     // CIF = listArrayNumber[2];
+    //     // DIF = listArrayNumber[3];
+    //     // foreach(int value in listArrayNumber)
+    //     // {
+    //     //     Debug.Log(value);
+    //     // }
+    // }
 
     public void CheckAnswers(string Answer)
     {
@@ -110,19 +215,6 @@ public class QuestionGenerate : MonoBehaviour
             currentAnswer = "D";
         }
         
-    }
-
-    public void AnswersSort()
-    {
-        spawn.listNumbersSpawn.Sort();
-        // foreach(int value in spawn.listNumbersSpawn)
-        // {
-        //     Debug.Log(value);
-        // }
-        higherValue = spawn.listNumbersSpawn[2];
-        lessValue = spawn.listNumbersSpawn[0];
-        Debug.Log(higherValue);
-        Debug.Log(lessValue);
     }
 
 
@@ -197,11 +289,13 @@ public class QuestionGenerate : MonoBehaviour
             randomQuestion = 1;
             if(randomQuestion == 1)
             {
+                GenerateAnswersImage();
+                DisplayImageButton();
                 QuestionDisplay.newQuestion = "Cual especie observaste mas?:";
-                QuestionDisplay.newIA = AnswerAImg;
-                QuestionDisplay.newIB = AnswerBImg;
-                QuestionDisplay.newIC = AnswerCImg;
-                QuestionDisplay.newID = AnswerDImg;
+                QuestionDisplay.newIA = AI;
+                QuestionDisplay.newIB = BI;
+                QuestionDisplay.newIC = CI;
+                QuestionDisplay.newID = DI;
             }
             
 
