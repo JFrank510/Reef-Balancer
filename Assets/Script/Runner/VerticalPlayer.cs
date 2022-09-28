@@ -18,7 +18,7 @@ public class VerticalPlayer : MonoBehaviour
     void Start()
     {
         isVulnerable = true;
-        tick = 1.5f;
+        tick = 2.0f;
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0.0f, 0.0f);
         rb.isKinematic = false;
@@ -33,9 +33,17 @@ public class VerticalPlayer : MonoBehaviour
 
         if (tick <= 0) {
             isVulnerable = true;
-            tick = 1.5f;
+            tick = 2.0f;
+            this.gameObject.transform.localScale = new Vector3(0.1861576f, 0.1861576f, 0.1861576f);
         } else if (tick > 0 && !isVulnerable) {
             tick -= Time.deltaTime;
+
+
+            if (this.gameObject.transform.localScale == Vector3.zero) {
+                this.gameObject.transform.localScale = new Vector3(0.1861576f, 0.1861576f, 0.1861576f);
+            } else {
+                this.gameObject.transform.localScale = Vector3.zero;
+            }
         }
     }
 
