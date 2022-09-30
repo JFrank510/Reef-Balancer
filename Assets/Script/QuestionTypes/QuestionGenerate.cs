@@ -5,18 +5,18 @@ using UnityEngine;
 public class QuestionGenerate : MonoBehaviour
 {
     private static SpawnerFishesQ spawn;
-    public static string currentAnswer, correctAnswer;
-    public GameObject QuestionImg,QuestionImg2,QuestionImg3,QuestionImg4,panelQuestionT,panelQuestionI;
-    public GameObject AnswerAImg,AnswerAImg2,AnswerAImg3,AnswerAImg4;
-    public GameObject AnswerBImg,AnswerBImg2,AnswerBImg3,AnswerBImg4;
-    public GameObject AnswerCImg,AnswerCImg2,AnswerCImg3,AnswerCImg4;
-    public GameObject AnswerDImg,AnswerDImg2,AnswerDImg3,AnswerDImg4;
-    private int A,B,C,D,randomQuestion,randomAnswer,randomNumber,higherValue,lessValue,randomArrayNumber;
+    public static string currentAnswer, correctAnswer, correctAnswerText, displayAnswerText;
+    public GameObject QuestionImg, QuestionImg2, QuestionImg3, QuestionImg4, panelQuestionT, panelQuestionI;
+    public GameObject AnswerAImg, AnswerAImg2, AnswerAImg3, AnswerAImg4;
+    public GameObject AnswerBImg, AnswerBImg2, AnswerBImg3, AnswerBImg4;
+    public GameObject AnswerCImg, AnswerCImg2, AnswerCImg3, AnswerCImg4;
+    public GameObject AnswerDImg, AnswerDImg2, AnswerDImg3, AnswerDImg4;
+    private int A, B, C, D, randomQuestion, randomAnswer, randomNumber, higherValue, lessValue, randomArrayNumber;
 
-    private string AF,BF,CF,DF;
-    private string AI,BI,CI,DI;
+    private string AF, BF, CF, DF;
+    private string AI, BI, CI, DI;
 
-    private int AIF,BIF,CIF,DIF;
+    private int AIF, BIF, CIF, DIF;
     private int[] swapAns = new int[4];
     private List<int> listNumbers = new List<int>();
     private List<int> listArrayNumber = new List<int>();
@@ -35,7 +35,8 @@ public class QuestionGenerate : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            do {
+            do
+            {
                 randomNumber = random.Next(1, 5);
             } while (listNumbers.Contains(randomNumber));
             listNumbers.Add(randomNumber);
@@ -52,19 +53,23 @@ public class QuestionGenerate : MonoBehaviour
         D = listNumbers[3] + spawnType;
         swapAns = new int[] { A, B, C, D };
         randomAnswer = swapAns[random.Next(0, swapAns.Length)];
-        if(randomAnswer == A){
+        if (randomAnswer == A)
+        {
             A = spawnType;
         }
 
-        else if(randomAnswer == B){
+        else if (randomAnswer == B)
+        {
             B = spawnType;
         }
 
-        else if(randomAnswer == C){
+        else if (randomAnswer == C)
+        {
             C = spawnType;
         }
 
-        else if(randomAnswer == D){
+        else if (randomAnswer == D)
+        {
             D = spawnType;
         }
         AF = A.ToString();
@@ -83,17 +88,19 @@ public class QuestionGenerate : MonoBehaviour
         // }
         higherValue = spawn.listNumbersSpawn[3];
         lessValue = spawn.listNumbersSpawn[0];
-        // Debug.Log(higherValue);
+        Debug.Log(higherValue);
         // Debug.Log(lessValue);
     }
 
 
-     public void GenerateAnswersImage(){
+    public void GenerateAnswersImage()
+    {
         AnswersSort();
-        answersImage = new string[]{"LionFish","GreenFish","PinkFish","BlueFish"};
+        answersImage = new string[] { "LionFish", "GreenFish", "PinkFish", "BlueFish" };
         for (int i = 0; i < 4; i++)
         {
-            do {
+            do
+            {
                 randomArrayNumber = random.Next(0, 4);
             } while (listArrayNumber.Contains(randomArrayNumber));
             listArrayNumber.Add(randomArrayNumber);
@@ -107,73 +114,136 @@ public class QuestionGenerate : MonoBehaviour
         BI = answersImage[BIF];
         CI = answersImage[CIF];
         DI = answersImage[DIF];
-     }
-    public void DisplayImageButton(){
-        if(AI == "LionFish"){
-            AnswerAImg.SetActive(true);
+
+        if (higherValue == spawn.spawnLFQ)
+        {
+            correctAnswerText = "LionFish";
+            displayAnswerText = "AI";
         }
 
-        if(AI == "GreenFish"){
+        if (higherValue == spawn.spawnGFQ)
+        {
+            correctAnswerText = "GreenFish";
+            displayAnswerText = "BI";
+        }
+
+        if (higherValue == spawn.spawnPFQ)
+        {
+            correctAnswerText = "PinkFish";
+            displayAnswerText = "CI";
+        }
+
+        if (higherValue == spawn.spawnBFQ)
+        {
+            correctAnswerText = "BlueFish";
+            displayAnswerText = "DI";
+        }
+    }
+    public void DisplayImageButton()
+    {
+        if (AI == "LionFish")
+        {
+            AnswerAImg.SetActive(true);
+        }
+        if (AI == "GreenFish")
+        {
             AnswerAImg2.SetActive(true);
         }
 
-        if(AI == "PinkFish"){
+        if (AI == "PinkFish")
+        {
             AnswerAImg3.SetActive(true);
         }
-        
-        if(AI == "BlueFish"){
+
+        if (AI == "BlueFish")
+        {
             AnswerAImg4.SetActive(true);
         }
 
-        if(BI == "LionFish"){
+        if (BI == "LionFish")
+        {
             AnswerBImg.SetActive(true);
         }
 
-        if(BI == "GreenFish"){
+        if (BI == "GreenFish")
+        {
             AnswerBImg2.SetActive(true);
         }
 
-        if(BI == "PinkFish"){
+        if (BI == "PinkFish")
+        {
             AnswerBImg3.SetActive(true);
         }
-        
-        if(BI == "BlueFish"){
+
+        if (BI == "BlueFish")
+        {
             AnswerBImg4.SetActive(true);
         }
 
-        if(CI == "LionFish"){
+        if (CI == "LionFish")
+        {
             AnswerCImg.SetActive(true);
         }
 
-        if(CI == "GreenFish"){
+        if (CI == "GreenFish")
+        {
             AnswerCImg2.SetActive(true);
         }
 
-        if(CI == "PinkFish"){
+        if (CI == "PinkFish")
+        {
             AnswerCImg3.SetActive(true);
         }
-        
-        if(CI == "BlueFish"){
+
+        if (CI == "BlueFish")
+        {
             AnswerCImg4.SetActive(true);
         }
 
-        if(DI == "LionFish"){
+        if (DI == "LionFish")
+        {
             AnswerDImg.SetActive(true);
         }
 
-        if(DI == "GreenFish"){
+        if (DI == "GreenFish")
+        {
             AnswerDImg2.SetActive(true);
         }
 
-        if(DI == "PinkFish"){
+        if (DI == "PinkFish")
+        {
             AnswerDImg3.SetActive(true);
         }
-        
-        if(DI == "BlueFish"){
+
+        if (DI == "BlueFish")
+        {
             AnswerDImg4.SetActive(true);
         }
     }
-    
+
+    public void DisplayQuestionImage(string displayImage)
+    {
+        switch (displayImage)
+        {
+            case "LionFish":
+                DisplayImageButton();
+                break;
+
+            case "GreenFish":
+                DisplayImageButton();
+                break;
+
+            case "PinkFish":
+                DisplayImageButton();
+                break;
+
+            case "BlueFish":
+                DisplayImageButton();
+                break;
+        }
+
+    }
+
     // public void GenerateAnswersImage(){
     //     AnswersSort();
     //     // answersImage = new Sprite[] {AnswerAImg,AnswerBImg,AnswerCImg,AnswerDImg};
@@ -199,33 +269,36 @@ public class QuestionGenerate : MonoBehaviour
     {
         // Debug.Log(correctAnswer);
         // Debug.Log(answer);
-        if (AF == Answer){
+        if (AF == Answer)
+        {
             currentAnswer = "A";
         }
 
-        if (BF == Answer){
+        if (BF == Answer)
+        {
             currentAnswer = "B";
         }
 
-        if (CF == Answer){
+        if (CF == Answer)
+        {
             currentAnswer = "C";
         }
 
-        if (DF == Answer){
+        if (DF == Answer)
+        {
             currentAnswer = "D";
         }
-        
-    }
 
+    }
 
     public void QuestionsView()
     {
-        if(QuestionDisplay.randomQuestion == 0)
+        if (QuestionDisplay.randomQuestion == 0)
         {
             panelQuestionT.SetActive(true);
             // randomQuestion = 4;
-            randomQuestion = Random.Range(1,4);
-            if(randomQuestion == 1)
+            randomQuestion = Random.Range(1, 4);
+            if (randomQuestion == 1)
             {
                 GenerateAnswersText(spawn.spawnLFQ);
                 QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
@@ -239,7 +312,7 @@ public class QuestionGenerate : MonoBehaviour
                 CheckAnswers(correctAnswer);
             }
 
-            if(randomQuestion == 2)
+            if (randomQuestion == 2)
             {
                 GenerateAnswersText(spawn.spawnGFQ);
                 QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
@@ -253,7 +326,7 @@ public class QuestionGenerate : MonoBehaviour
                 CheckAnswers(correctAnswer);
             }
 
-            if(randomQuestion == 3)
+            if (randomQuestion == 3)
             {
                 GenerateAnswersText(spawn.spawnPFQ);
                 QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
@@ -267,7 +340,7 @@ public class QuestionGenerate : MonoBehaviour
                 CheckAnswers(correctAnswer);
             }
 
-            if(randomQuestion == 4)
+            if (randomQuestion == 4)
             {
                 GenerateAnswersText(spawn.spawnBFQ);
                 QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
@@ -282,22 +355,22 @@ public class QuestionGenerate : MonoBehaviour
             }
         }
 
-        if(QuestionDisplay.randomQuestion == 1)
+        if (QuestionDisplay.randomQuestion == 1)
         {
             panelQuestionI.SetActive(true);
             // randomQuestion = Random.Range(1,3);
             randomQuestion = 1;
-            if(randomQuestion == 1)
+            if (randomQuestion == 1)
             {
                 GenerateAnswersImage();
-                DisplayImageButton();
+                DisplayQuestionImage(correctAnswerText);
                 QuestionDisplay.newQuestion = "Cual especie observaste mas?:";
                 QuestionDisplay.newIA = AI;
                 QuestionDisplay.newIB = BI;
                 QuestionDisplay.newIC = CI;
                 QuestionDisplay.newID = DI;
             }
-            
+
 
         }
     }
