@@ -43,8 +43,8 @@ public class QuestionDisplay : MonoBehaviour
     public void ChooseQuestionType()
     {
         swapQuestion = new string[] { "Text", "Image" };
-        // randomQuestion = random.Next(swapQuestion.Length);
-        randomQuestion = 1;
+        randomQuestion = random.Next(swapQuestion.Length);
+        // randomQuestion = 1;
         if (randomQuestion == 0)
             StartCoroutine(PushTextOnScreen());
         if (randomQuestion == 1)

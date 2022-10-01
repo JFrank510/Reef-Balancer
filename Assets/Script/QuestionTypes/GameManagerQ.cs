@@ -7,22 +7,24 @@ public class GameManagerQ : MonoBehaviour
 {
     public GameObject panelQuestion;
     public GameObject panelRound;
+    public GameObject spawn;
     public Text timeRText;
-    public Text timeQText;
-
-    public float durationR, currentTimeR, durationQ, currentTimeQ;
+    // public Text timeQText;
+    public float durationR, currentTimeR;
+    // public float durationQ,currentTimeQ;
 
     void Start()
     {
         panelRound.SetActive(true);
         currentTimeR = durationR;
-        currentTimeQ = durationQ;
+        // currentTimeQ = durationQ;
         StartCoroutine(TimeInRound());
     }
 
     IEnumerator TimeInRound()
     {
-        while(currentTimeR >= 0){
+        while (currentTimeR >= 0)
+        {
             timeRText.text = currentTimeR.ToString();
             yield return new WaitForSeconds(1f);
             currentTimeR--;
@@ -30,21 +32,23 @@ public class GameManagerQ : MonoBehaviour
         openPanel();
     }
 
-    IEnumerator TimeInQuestion()
-    {
-        while(currentTimeQ >= 0){
-            timeQText.text = currentTimeQ.ToString();
-            yield return new WaitForSeconds(1f);
-            currentTimeQ--;
-        }
-    }
-    
+    // IEnumerator TimeInQuestion()
+    // {
+    //     while (currentTimeQ >= 0)
+    //     {
+    //         timeQText.text = currentTimeQ.ToString();
+    //         yield return new WaitForSeconds(1f);
+    //         currentTimeQ--;
+    //     }
+    // }
+
 
     void openPanel()
     {
         panelRound.SetActive(false);
+        spawn.SetActive(false);
         panelQuestion.SetActive(true);
-        StartCoroutine(TimeInQuestion());
+        // StartCoroutine(TimeInQuestion());
     }
 
 }

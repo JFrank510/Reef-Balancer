@@ -492,7 +492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &56027068
 RectTransform:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ RectTransform:
   - {fileID: 124080118}
   - {fileID: 1454609691}
   m_Father: {fileID: 1747998471}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 60095017}
   - component: {fileID: 60095016}
   m_Layer: 5
-  m_Name: CorrectPanelD
+  m_Name: CorrectPanelID
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1745,7 +1745,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1770,7 +1770,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 824836738}
         m_TargetAssemblyTypeName: AnswerButtonQ, Assembly-CSharp
-        m_MethodName: AnswerA
+        m_MethodName: AnswerB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1890,7 +1890,7 @@ RectTransform:
   - {fileID: 723153330}
   - {fileID: 594698700}
   m_Father: {fileID: 1747998471}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2301,7 +2301,7 @@ GameObject:
   - component: {fileID: 397341568}
   - component: {fileID: 397341567}
   m_Layer: 5
-  m_Name: WrongPanelA
+  m_Name: WrongPanelIA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2433,7 +2433,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2458,7 +2458,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 824836738}
         m_TargetAssemblyTypeName: AnswerButtonQ, Assembly-CSharp
-        m_MethodName: AnswerA
+        m_MethodName: AnswerD
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2678,7 +2678,7 @@ GameObject:
   - component: {fileID: 447711323}
   - component: {fileID: 447711322}
   m_Layer: 5
-  m_Name: CorrectPanelC
+  m_Name: CorrectPanelIC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3413,7 +3413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &621480358
 Transform:
   m_ObjectHideFlags: 0
@@ -3430,7 +3430,7 @@ Transform:
   - {fileID: 431782730}
   - {fileID: 568870797}
   m_Father: {fileID: 1747998471}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634106012
 GameObject:
@@ -3467,7 +3467,7 @@ RectTransform:
   - {fileID: 485730020}
   - {fileID: 86419767}
   m_Father: {fileID: 1747998471}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3524,7 +3524,6 @@ GameObject:
   - component: {fileID: 635715871}
   - component: {fileID: 635715870}
   - component: {fileID: 635715868}
-  - component: {fileID: 635715873}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3631,28 +3630,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &635715873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635715867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed105f9760372244c80e78ae2dff2aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LionFishPrefabQ: {fileID: 4289298167530589518, guid: 9fa764b4980323d4fa6d0a2159b7d6ae, type: 3}
-  GreenPrefabQ: {fileID: 4289298167530589518, guid: 6dff266cff99911439ed90f3607175aa, type: 3}
-  PinkFishPrefabQ: {fileID: 4289298167530589518, guid: f2409532b78ef5d40b2a4a4042abd148, type: 3}
-  BlueFishPrefabQ: {fileID: 4289298167530589518, guid: f7011161d6517c64189bd4aab8dc43fb, type: 3}
-  spawnBFQ: 0
-  spawnGFQ: 0
-  spawnPFQ: 0
-  spawnLFQ: 0
-  spawnTypeNumber: 0
-  listNumbersSpawn: 
 --- !u!1 &698687269
 GameObject:
   m_ObjectHideFlags: 0
@@ -4222,19 +4199,36 @@ MonoBehaviour:
   answerABlue: {fileID: 167550240}
   answerARed: {fileID: 1224861123}
   answerAGreen: {fileID: 1645707571}
+  answerIABlue: {fileID: 1902700292}
+  answerIARed: {fileID: 397341565}
+  answerIAGreen: {fileID: 1095302111}
   answerBBlue: {fileID: 1148775631}
   answerBRed: {fileID: 1300857167}
   answerBGreen: {fileID: 1835682355}
+  answerIBBlue: {fileID: 1210303101}
+  answerIBRed: {fileID: 1906919231}
+  answerIBGreen: {fileID: 928406690}
   answerCBlue: {fileID: 887718545}
   answerCRed: {fileID: 1867112780}
   answerCGreen: {fileID: 1710852177}
+  answerICBlue: {fileID: 1945895242}
+  answerICRed: {fileID: 1013751635}
+  answerICGreen: {fileID: 447711320}
   answerDBlue: {fileID: 104854735}
   answerDRed: {fileID: 1993318074}
   answerDGreen: {fileID: 838600632}
+  answerIDBlue: {fileID: 1896541683}
+  answerIDRed: {fileID: 2119754420}
+  answerIDGreen: {fileID: 60095014}
   answerA: {fileID: 1390185150}
   answerB: {fileID: 893036869}
   answerC: {fileID: 54919695}
   answerD: {fileID: 981686681}
+  answerIA: {fileID: 1124184955}
+  answerIB: {fileID: 303570640}
+  answerIC: {fileID: 1540549983}
+  answerID: {fileID: 403510206}
+  x: {fileID: 1593083650}
 --- !u!1 &838600632
 GameObject:
   m_ObjectHideFlags: 0
@@ -4536,7 +4530,7 @@ GameObject:
   - component: {fileID: 928406693}
   - component: {fileID: 928406692}
   m_Layer: 5
-  m_Name: CorrectPanelB
+  m_Name: CorrectPanelIB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5098,7 +5092,7 @@ GameObject:
   - component: {fileID: 1013751638}
   - component: {fileID: 1013751637}
   m_Layer: 5
-  m_Name: WrongPanelC
+  m_Name: WrongPanelIC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5465,7 +5459,7 @@ GameObject:
   - component: {fileID: 1095302114}
   - component: {fileID: 1095302113}
   m_Layer: 5
-  m_Name: CorrectPanelA
+  m_Name: CorrectPanelIA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5673,7 +5667,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5910,7 +5904,7 @@ GameObject:
   - component: {fileID: 1210303104}
   - component: {fileID: 1210303103}
   m_Layer: 5
-  m_Name: WaitPanelB
+  m_Name: WaitPanelIB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6875,7 +6869,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6900,7 +6894,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 824836738}
         m_TargetAssemblyTypeName: AnswerButtonQ, Assembly-CSharp
-        m_MethodName: AnswerA
+        m_MethodName: AnswerC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7108,6 +7102,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584323145}
   m_CullTransparentMesh: 1
+--- !u!1 &1593083650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1593083651}
+  - component: {fileID: 1593083652}
+  m_Layer: 0
+  m_Name: SpawnFishes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1593083651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593083650}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 75.72119, y: 101.2829, z: -433.31046}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1747998471}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1593083652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593083650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed105f9760372244c80e78ae2dff2aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LionFishPrefabQ: {fileID: 4289298167530589518, guid: 9fa764b4980323d4fa6d0a2159b7d6ae, type: 3}
+  GreenPrefabQ: {fileID: 4289298167530589518, guid: 6dff266cff99911439ed90f3607175aa, type: 3}
+  PinkFishPrefabQ: {fileID: 4289298167530589518, guid: f2409532b78ef5d40b2a4a4042abd148, type: 3}
+  BlueFishPrefabQ: {fileID: 4289298167530589518, guid: f7011161d6517c64189bd4aab8dc43fb, type: 3}
+  spawnBFQ: 0
+  spawnGFQ: 0
+  spawnPFQ: 0
+  spawnLFQ: 0
+  spawnTypeNumber: 0
+  listNumbersSpawn: 
 --- !u!1 &1645707571
 GameObject:
   m_ObjectHideFlags: 0
@@ -7274,6 +7322,7 @@ GameObject:
   - component: {fileID: 1747998468}
   - component: {fileID: 1747998467}
   - component: {fileID: 1747998465}
+  - component: {fileID: 1747998472}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7383,6 +7432,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1593083651}
   - {fileID: 621480358}
   - {fileID: 317668221}
   - {fileID: 634106013}
@@ -7396,6 +7446,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1747998472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747998464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea01085250101204d99fe27f31f90a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelQuestion: {fileID: 56027067}
+  panelRound: {fileID: 621480357}
+  spawn: {fileID: 1593083650}
+  timeRText: {fileID: 568870795}
+  durationR: 10
+  currentTimeR: 0
 --- !u!1 &1792554731
 GameObject:
   m_ObjectHideFlags: 0
@@ -7771,7 +7839,7 @@ GameObject:
   - component: {fileID: 1896541686}
   - component: {fileID: 1896541685}
   m_Layer: 5
-  m_Name: WaitPanelD
+  m_Name: WaitPanelID
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7847,7 +7915,7 @@ GameObject:
   - component: {fileID: 1902700295}
   - component: {fileID: 1902700294}
   m_Layer: 5
-  m_Name: WaitPanelA
+  m_Name: WaitPanelIA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7923,7 +7991,7 @@ GameObject:
   - component: {fileID: 1906919234}
   - component: {fileID: 1906919233}
   m_Layer: 5
-  m_Name: WrongPanelB
+  m_Name: WrongPanelIB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7999,7 +8067,7 @@ GameObject:
   - component: {fileID: 1945895245}
   - component: {fileID: 1945895244}
   m_Layer: 5
-  m_Name: WaitPanelC
+  m_Name: WaitPanelIC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8463,7 +8531,7 @@ GameObject:
   - component: {fileID: 2119754423}
   - component: {fileID: 2119754422}
   m_Layer: 5
-  m_Name: WrongPanelD
+  m_Name: WrongPanelID
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8599,7 +8667,7 @@ RectTransform:
   - {fileID: 1404725687}
   - {fileID: 970502619}
   m_Father: {fileID: 1747998471}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

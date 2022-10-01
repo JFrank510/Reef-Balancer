@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuestionGenerate : MonoBehaviour
 {
     private static SpawnerFishesQ spawn;
-    public static string currentAnswer, correctAnswer, correctAnswerText, displayAnswerText;
+    public static string currentAnswer, correctAnswer, correctAnswerText;
     public GameObject QuestionImg, QuestionImg2, QuestionImg3, QuestionImg4, panelQuestionT, panelQuestionI;
     public GameObject AnswerAImg, AnswerAImg2, AnswerAImg3, AnswerAImg4;
     public GameObject AnswerBImg, AnswerBImg2, AnswerBImg3, AnswerBImg4;
@@ -118,25 +118,21 @@ public class QuestionGenerate : MonoBehaviour
         if (higherValue == spawn.spawnLFQ)
         {
             correctAnswerText = "LionFish";
-            displayAnswerText = "AI";
         }
 
         if (higherValue == spawn.spawnGFQ)
         {
             correctAnswerText = "GreenFish";
-            displayAnswerText = "BI";
         }
 
         if (higherValue == spawn.spawnPFQ)
         {
             correctAnswerText = "PinkFish";
-            displayAnswerText = "CI";
         }
 
         if (higherValue == spawn.spawnBFQ)
         {
             correctAnswerText = "BlueFish";
-            displayAnswerText = "DI";
         }
     }
     public void DisplayImageButton()
@@ -221,50 +217,29 @@ public class QuestionGenerate : MonoBehaviour
         }
     }
 
-    public void DisplayQuestionImage(string displayImage)
+    public void CheckAnswersText()
     {
-        switch (displayImage)
+        if (AI == correctAnswerText)
         {
-            case "LionFish":
-                DisplayImageButton();
-                break;
+            currentAnswer = "A";
+        }
 
-            case "GreenFish":
-                DisplayImageButton();
-                break;
+        if (BI == correctAnswerText)
+        {
+            currentAnswer = "B";
+        }
 
-            case "PinkFish":
-                DisplayImageButton();
-                break;
+        if (CI == correctAnswerText)
+        {
+            currentAnswer = "C";
+        }
 
-            case "BlueFish":
-                DisplayImageButton();
-                break;
+        if (DI == correctAnswerText)
+        {
+            currentAnswer = "D";
         }
 
     }
-
-    // public void GenerateAnswersImage(){
-    //     AnswersSort();
-    //     // answersImage = new Sprite[] {AnswerAImg,AnswerBImg,AnswerCImg,AnswerDImg};
-    //     // for (int i = 0; i < 4; i++)
-    //     // {
-    //     //     do {
-    //     //         randomArrayNumber = random.Next(0, 4);
-    //     //     } while (listArrayNumber.Contains(randomArrayNumber));
-    //     //     listArrayNumber.Add(randomArrayNumber);
-    //     // }
-
-    //     // AIF = listArrayNumber[0];
-    //     // BIF = listArrayNumber[1];
-    //     // CIF = listArrayNumber[2];
-    //     // DIF = listArrayNumber[3];
-    //     // foreach(int value in listArrayNumber)
-    //     // {
-    //     //     Debug.Log(value);
-    //     // }
-    // }
-
     public void CheckAnswers(string Answer)
     {
         // Debug.Log(correctAnswer);
@@ -363,15 +338,14 @@ public class QuestionGenerate : MonoBehaviour
             if (randomQuestion == 1)
             {
                 GenerateAnswersImage();
-                DisplayQuestionImage(correctAnswerText);
+                DisplayImageButton();
                 QuestionDisplay.newQuestion = "Cual especie observaste mas?:";
                 QuestionDisplay.newIA = AI;
                 QuestionDisplay.newIB = BI;
                 QuestionDisplay.newIC = CI;
                 QuestionDisplay.newID = DI;
+                CheckAnswersText();
             }
-
-
         }
     }
 
