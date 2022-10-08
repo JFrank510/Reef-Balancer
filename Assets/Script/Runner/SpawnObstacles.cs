@@ -22,20 +22,20 @@ public class SpawnObstacles : MonoBehaviour
         paths = new Hashtable();
 
         // Defining Routes:
+
+        // ? Routes are defined based on the boolean representation
+        // ? if the space between obstacles is minimum, then it would be represented correctly using
+        // ? booleans to select possible and available paths.
+        // ! Since, we have space between our obstacles we can test and configure difficult using
+        // ! the values 5 and 6, which are 101 and 110 (only one path available)
+
         int[] zeroRoute = { 1, 2, 3, 5, 6 };
         int[] oneRoute = { 3, 5, 6 };
         int[] twoRoute = { 3, 5, 6 };
         int[] threeRoute = { 5, 6 };
-        int[] fourRoute = { 5, 6 }; // causes the game to be more easy
+        int[] fourRoute = { 5, 6 };
         int[] fiveRoute = { 3, 6 };
         int[] sixRoute = { 1, 2, 3, 5 };
-
-        // 1 = 001
-        // 2 = 010
-        // 3 = 011
-        // 4 = 100
-        // 5 = 101
-        // 6 = 110
 
         paths.Add(0, zeroRoute);
         paths.Add(1, oneRoute);
@@ -45,20 +45,25 @@ public class SpawnObstacles : MonoBehaviour
         paths.Add(5, fiveRoute);
         paths.Add(6, sixRoute);
 
+        // Route 4 (100) is not used since makes the game easier.
+
         StartSpawn();
         current = 0;
     }
 
+    // disable spawn
     public void StopSpawn()
     {
         canSpawn = false;
     }
 
+    // enable spawn
     public void StartSpawn()
     {
         canSpawn = true;
     }
 
+    // spawn a new structure.
     void SpawnNewStructure()
     {
         // Check available routes
@@ -71,6 +76,7 @@ public class SpawnObstacles : MonoBehaviour
         Spawn(current);
     }
 
+    // spawn the path
     void Spawn(int option)
     {
         switch(option) {
@@ -107,13 +113,13 @@ public class SpawnObstacles : MonoBehaviour
         }
     }
 
-    /**
-     * ! Hola
-     */
+    // check if we can spawn power up
     bool SpawnPowerUp() {
         if (canSpawnPowerup) {
+            // select a random number
             int ratio = Random.Range(0, 100);
 
+            // if random number is greater than expected we can spawn.
             if (ratio > 80) {
                 canSpawnPowerup = false;
 
@@ -127,6 +133,7 @@ public class SpawnObstacles : MonoBehaviour
         return false;
     }
 
+    // Function to create trash
     GameObject Create(float positionY) {
         GameObject a = Instantiate(trashPrefab) as GameObject;
         a.transform.position = new Vector2(10, positionY);
@@ -139,6 +146,7 @@ public class SpawnObstacles : MonoBehaviour
     {
         if (canSpawn) {
             if (cooldown <= 0) {
+                // spawn a new structure
                 SpawnNewStructure();
 
                 // Restart timer

@@ -47,10 +47,12 @@ public class Trash : MonoBehaviour
 
     void Update()
     {
+        // Trash should rotate
         if (rotate) {
             this.transform.Rotate(0, 0, 60 * Time.deltaTime);
         }
 
+        // update light intensity if is night.
         if (this.name == "Coral") {
             if (rn.isNigth()) {
                 lt.intensity = 0.6f;

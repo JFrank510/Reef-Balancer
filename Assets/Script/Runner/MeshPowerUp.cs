@@ -31,20 +31,27 @@ public class MeshPowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if power up is in use
         if (isInUse) {
+            // if is stopped and can change its way
             if (speedY == 0.0f && canChooseNewWay()) {
+                // select a new position
                 SelectNewPosition();
+                // restart cooldown for choose new way
                 cndown = 3.0f;
             }
 
-            // Stop the Mesh in the correct path.
+            // stop the mesh when reached the desired point
             if (speedY > 0.0f && this.transform.position.y > position || speedY < 0.0f && this.transform.position.y < position) {
                 speedY = 0.0f;
                 rb.velocity = new Vector2(-speedX, speedY);
             }
 
+            // if all lives of item are exhausted, destroy the object
             if (lives <= 0) {
                 Destroy(this.gameObject);
+
+                // spawner can show a new powerup
                 so.canSpawnPowerup = true;
             }
         }
@@ -62,32 +69,33 @@ public class MeshPowerUp : MonoBehaviour
         int next = 1;
         float oldPosition = position;
 
-        // Note Hector:
-        // Random.Range(Min, MAX (Not inclusive)).
-
-        /**
-         * This allows to move freely between the three rows.
-         */
+        // Note: Random.Range(a, b); 
+        //  B is not inclusive, so we can add one more.
         switch (position) {
             case 2.25f:
                 // Choose one of three paths
                 next = Random.Range(0, 3);
+                
+                // going down
                 position = position - (next * 2.25f);
                 break;  
             case 0.0f:
                 // Choose one of three paths
-                next = Random.Range(-1, 2);
+                next = Random.Range(-1, 2)
+                
+                // going up or down
                 position = position + (next * 2.25f);
                 break;
             case -2.25f:
                 // choose one of three paths
                 next = Random.Range(0, 3);
+                
+                // going up
                 position = position + (next * 2.25f);
                 break;  
         }
 
-        // We require the old position to determine which 
-        // speedY we require, positive, 0 or negative.
+        // use oldPosition to determine the Y velocity.
         if (oldPosition == position) {
             // dont move
             speedY = 0;
@@ -104,18 +112,28 @@ public class MeshPowerUp : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // if mesh is not being used
         if (!isInUse) {
+            // if collides with player
             if (other.name == "Player") {
+                // start using
                 isInUse = true;
-                speedX = 0.0f;
 
+                // adjust velocity and position
+                speedX = 0.0f;
                 rb.velocity = new Vector2(speedX, speedY);
                 this.transform.position = new Vector2(this.transform.position.x + 1, 0.0f);
-            } else {
+            } 
+            // if collides with another thing
+            else {
+                // destroy the item
                 Destroy(this.gameObject);
                 so.canSpawnPowerup = true;
             }
-        } else {
+        } 
+        // if is being used
+        else {
+            // when colliding with trash destroy the game object and set new score.
             if (other.name == "Trash(Clone)") {
                 Destroy(other.gameObject);
                 rn.AddPoints(10 * lives);
