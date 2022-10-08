@@ -12,14 +12,20 @@ public class Runner : MonoBehaviour
     public int score;
     private VerticalPlayer player;
     private SpawnObstacles spawn;
-
+    
     public GameObject uiPanel;
     public GameObject pausePanel;
     public GameObject losePanel;
-
+    
     private TMP_Text uiScore;
     private TMP_Text uiLives;
     public Text loseScore;
+
+    private UnityEngine.Rendering.Universal.Light2D lt;
+
+    private float ILLUMINATION_CNDWN = 5.0f;
+
+    private float changeIlumination;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +36,12 @@ public class Runner : MonoBehaviour
 
         player = GameObject.Find("Player").GetComponent<VerticalPlayer>();
         spawn = GetComponent<SpawnObstacles>();
+        lt    = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
 
         uiScore = GameObject.Find("Text Score").GetComponent<TMP_Text>();
         uiLives = GameObject.Find("Text Lives").GetComponent<TMP_Text>();
+
+        changeIlumination = ILLUMINATION_CNDWN;
     }
 
     // Update is called once per frame
@@ -40,6 +49,7 @@ public class Runner : MonoBehaviour
     {
         // Check if player is alive
         if (gameRunning) {
+            setIlumination();
 
             if (player.lives <= 0) {
                 gameRunning = false;
@@ -64,6 +74,29 @@ public class Runner : MonoBehaviour
                 HideUI();
             }
         }
+    }
+
+    public void setIlumination()
+    {
+        changeIlumination -= Time.deltaTime;
+
+        if (changeIlumination < 0) {
+            changeIlumination = ILLUMINATION_CNDWN;
+
+            if (lt.intensity == 1.0f) {
+                lt.intensity = 0.3f;
+
+                player.GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
+            } else {
+                lt.intensity = 1.0f;
+                
+                player.GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0;
+            }
+        }
+    }
+
+    public bool isNigth() {
+        return lt.intensity != 1.0f;
     }
 
     // Pause the game

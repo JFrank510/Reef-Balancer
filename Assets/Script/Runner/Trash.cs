@@ -12,12 +12,15 @@ public class Trash : MonoBehaviour
     public Sprite[] sprites;
     public float[] scales;
     public float[] radius;
+    public bool rotate = false;
+    private UnityEngine.Rendering.Universal.Light2D lt;
 
     // Start is called before the first frame update
     void Start()
     {
         vp = GameObject.Find("Player").GetComponent<VerticalPlayer>();
         rn = GameObject.Find("Main Camera").GetComponent<Runner>();
+        lt = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
 
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(-speedY, 0.0f);   
@@ -26,9 +29,11 @@ public class Trash : MonoBehaviour
         
         if (this.transform.position.y == -2.25f) { 
             // Only Coral Sprites
+            this.name = "Coral";
             random = Random.Range(sprites.Length - 2, sprites.Length); 
         } else { 
             // Non Coral Sprites
+            rotate = true;
             random = Random.Range(0, sprites.Length - 2);
         }        
 
@@ -38,6 +43,21 @@ public class Trash : MonoBehaviour
         // select box and scale
         GetComponent<BoxCollider2D>().size = new Vector2(radius[random], radius[random]);
         this.gameObject.transform.localScale = new Vector3(scales[random], scales[random], scales[random]);
+    }
+
+    void Update()
+    {
+        if (rotate) {
+            this.transform.Rotate(0, 0, 60 * Time.deltaTime);
+        }
+
+        if (this.name == "Coral") {
+            if (rn.isNigth()) {
+                lt.intensity = 0.6f;
+            } else {
+                lt.intensity = 0.0f;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
