@@ -23,7 +23,7 @@ public class Runner : MonoBehaviour
 
     private UnityEngine.Rendering.Universal.Light2D lt;
 
-    private float ILLUMINATION_CNDWN = 5.0f;
+    private float ILLUMINATION_CNDWN = 15.0f;
 
     private float changeIlumination;
 

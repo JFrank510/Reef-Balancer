@@ -73,7 +73,7 @@ public class VerticalPlayer : MonoBehaviour
     // Check if size is zero.
     bool sizeIsZero()
     {
-        return this.gameObject.transform.localScale == Vector3.zero
+        return this.gameObject.transform.localScale == Vector3.zero;
     }
 
     void Move()

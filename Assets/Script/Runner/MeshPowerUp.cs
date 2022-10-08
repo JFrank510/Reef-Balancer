@@ -81,7 +81,7 @@ public class MeshPowerUp : MonoBehaviour
                 break;  
             case 0.0f:
                 // Choose one of three paths
-                next = Random.Range(-1, 2)
+                next = Random.Range(-1, 2);
                 
                 // going up or down
                 position = position + (next * 2.25f);
