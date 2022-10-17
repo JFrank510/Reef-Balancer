@@ -5,38 +5,42 @@ using UnityEngine.UI;
 
 public class AnswerButtonQ : MonoBehaviour
 {
-    public GameObject answerABlue, answerARed, answerAGreen, answerIABlue, answerIARed, answerIAGreen;
-    public GameObject answerBBlue, answerBRed, answerBGreen, answerIBBlue, answerIBRed, answerIBGreen;
-    public GameObject answerCBlue, answerCRed, answerCGreen, answerICBlue, answerICRed, answerICGreen;
-    public GameObject answerDBlue, answerDRed, answerDGreen, answerIDBlue, answerIDRed, answerIDGreen;
+    public GameObject spawn2, spawn3;
+    public int round = 1;
+    private static GameManagerQ game;
+    public GameObject answerABlue, answerARed, answerAGreen;
+    public GameObject answerBBlue, answerBRed, answerBGreen;
+    public GameObject answerCBlue, answerCRed, answerCGreen;
+    public GameObject answerDBlue, answerDRed, answerDGreen;
     public GameObject answerA, answerB, answerC, answerD;
-    public GameObject answerIA, answerIB, answerIC, answerID;
 
+    private void Awake()
+    {
+        game = FindObjectOfType<GameManagerQ>();
+    }
     public void AnswerA()
     {
         if (QuestionGenerate.currentAnswer == "A")
         {
             answerAGreen.SetActive(true);
             answerABlue.SetActive(false);
-            answerIAGreen.SetActive(true);
-            answerIABlue.SetActive(false);
+            round++;
+            StartCoroutine(NextQuestion());
+            RoundRestart();
         }
 
         else
         {
             answerARed.SetActive(true);
             answerABlue.SetActive(false);
-            answerIARed.SetActive(true);
-            answerIABlue.SetActive(false);
+            StartCoroutine(NextQuestion());
+            RoundRestart();
+            round++;
         }
         answerA.GetComponent<Button>().enabled = false;
         answerB.GetComponent<Button>().enabled = false;
         answerC.GetComponent<Button>().enabled = false;
         answerD.GetComponent<Button>().enabled = false;
-        answerIA.GetComponent<Button>().enabled = false;
-        answerIB.GetComponent<Button>().enabled = false;
-        answerIC.GetComponent<Button>().enabled = false;
-        answerID.GetComponent<Button>().enabled = false;
     }
 
     public void AnswerB()
@@ -45,25 +49,23 @@ public class AnswerButtonQ : MonoBehaviour
         {
             answerBGreen.SetActive(true);
             answerBBlue.SetActive(false);
-            answerIBGreen.SetActive(true);
-            answerIBBlue.SetActive(false);
+            StartCoroutine(NextQuestion());
+            RoundRestart();
+            round++;
         }
 
         else
         {
             answerBRed.SetActive(true);
             answerBBlue.SetActive(false);
-            answerIBRed.SetActive(true);
-            answerIBBlue.SetActive(false);
+            StartCoroutine(NextQuestion());
+            RoundRestart();
+            round++;
         }
         answerA.GetComponent<Button>().enabled = false;
         answerB.GetComponent<Button>().enabled = false;
         answerC.GetComponent<Button>().enabled = false;
         answerD.GetComponent<Button>().enabled = false;
-        answerIA.GetComponent<Button>().enabled = false;
-        answerIB.GetComponent<Button>().enabled = false;
-        answerIC.GetComponent<Button>().enabled = false;
-        answerID.GetComponent<Button>().enabled = false;
     }
 
     public void AnswerC()
@@ -72,25 +74,23 @@ public class AnswerButtonQ : MonoBehaviour
         {
             answerCGreen.SetActive(true);
             answerCBlue.SetActive(false);
-            answerICGreen.SetActive(true);
-            answerICBlue.SetActive(false);
+            StartCoroutine(NextQuestion());
+            RoundRestart();
+            round++;
         }
 
         else
         {
             answerCRed.SetActive(true);
             answerCBlue.SetActive(false);
-            answerICRed.SetActive(true);
-            answerICBlue.SetActive(false);
+            StartCoroutine(NextQuestion());
+            RoundRestart();
+            round++;
         }
         answerA.GetComponent<Button>().enabled = false;
         answerB.GetComponent<Button>().enabled = false;
         answerC.GetComponent<Button>().enabled = false;
         answerD.GetComponent<Button>().enabled = false;
-        answerIA.GetComponent<Button>().enabled = false;
-        answerIB.GetComponent<Button>().enabled = false;
-        answerIC.GetComponent<Button>().enabled = false;
-        answerID.GetComponent<Button>().enabled = false;
     }
 
     public void AnswerD()
@@ -99,25 +99,65 @@ public class AnswerButtonQ : MonoBehaviour
         {
             answerDGreen.SetActive(true);
             answerDBlue.SetActive(false);
-            answerIDGreen.SetActive(true);
-            answerIDBlue.SetActive(false);
+            StartCoroutine(NextQuestion());
+            RoundRestart();
+            round++;
         }
 
         else
         {
             answerDRed.SetActive(true);
             answerDBlue.SetActive(false);
-            answerIDRed.SetActive(true);
-            answerIDBlue.SetActive(false);
+            StartCoroutine(NextQuestion());
+            RoundRestart();
+            round++;
         }
         answerA.GetComponent<Button>().enabled = false;
         answerB.GetComponent<Button>().enabled = false;
         answerC.GetComponent<Button>().enabled = false;
         answerD.GetComponent<Button>().enabled = false;
-        answerIA.GetComponent<Button>().enabled = false;
-        answerIB.GetComponent<Button>().enabled = false;
-        answerIC.GetComponent<Button>().enabled = false;
-        answerID.GetComponent<Button>().enabled = false;
+    }
+
+    IEnumerator NextQuestion()
+    {
+        yield return new WaitForSeconds(5);
+        answerAGreen.SetActive(false);
+        answerBGreen.SetActive(false);
+        answerCGreen.SetActive(false);
+        answerDGreen.SetActive(false);
+        answerARed.SetActive(false);
+        answerBRed.SetActive(false);
+        answerCRed.SetActive(false);
+        answerDRed.SetActive(false);
+        answerABlue.SetActive(true);
+        answerBBlue.SetActive(true);
+        answerCBlue.SetActive(true);
+        answerDBlue.SetActive(true);
+        answerA.GetComponent<Button>().enabled = true;
+        answerB.GetComponent<Button>().enabled = true;
+        answerC.GetComponent<Button>().enabled = true;
+        answerD.GetComponent<Button>().enabled = true;
+    }
+
+    // public void RoundRestart()
+    // {
+    //     IEnumerator Checkquestion()
+    //     {
+    //         spawn2.SetActive(true);
+    //         game.panelQuestion.SetActive(false);
+    //         // game.panelRound.SetActive(true);
+    //         game.Start();
+    //         // question.Start();
+    //     }
+    // }
+
+    public void RoundRestart()
+    {
+        spawn2.SetActive(true);
+        game.panelQuestion.SetActive(false);
+        // game.panelRound.SetActive(true);
+        game.Start();
+        // question.Start();
     }
 
 }

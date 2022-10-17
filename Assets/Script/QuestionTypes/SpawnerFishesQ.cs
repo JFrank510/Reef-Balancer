@@ -52,15 +52,17 @@ public class SpawnerFishesQ : MonoBehaviour
     public GameObject PinkFishPrefabQ;
     public GameObject BlueFishPrefabQ;
     private Vector2 screenBounds;
-    public int spawnBFQ,spawnGFQ, spawnPFQ, spawnLFQ,spawnTypeNumber;
+    public int spawnBFQ, spawnGFQ, spawnPFQ, spawnLFQ, spawnTypeNumber;
     public List<int> listNumbersSpawn = new List<int>();
     private System.Random random = new System.Random();
 
-    private void Start() {
+    public void Start()
+    {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        DoSpawn();
     }
 
-    public void DoSpawn()        
+    public void DoSpawn()
     {
         RandomSpawn();
         spawnTypesFishes();
@@ -69,7 +71,8 @@ public class SpawnerFishesQ : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            do {
+            do
+            {
                 spawnTypeNumber = random.Next(1, 5);
             } while (listNumbersSpawn.Contains(spawnTypeNumber));
             listNumbersSpawn.Add(spawnTypeNumber);
@@ -79,48 +82,52 @@ public class SpawnerFishesQ : MonoBehaviour
     public void RandomSpawn()
     {
         RandomNumberSpawn();
-        spawnLFQ =  listNumbersSpawn[0];
-        spawnGFQ =  listNumbersSpawn[1];
-        spawnPFQ =  listNumbersSpawn[2];
-        spawnBFQ =  listNumbersSpawn[3];
+        spawnLFQ = listNumbersSpawn[0];
+        spawnGFQ = listNumbersSpawn[1];
+        spawnPFQ = listNumbersSpawn[2];
+        spawnBFQ = listNumbersSpawn[3];
     }
     private void spawnLionFish()
     {
         GameObject a = Instantiate(LionFishPrefabQ) as GameObject;
-        a.transform.position = new Vector2(Random.Range(-screenBounds.x + 2 , screenBounds.x - 2), Random.Range(0, screenBounds.y));
+        a.transform.position = new Vector2(Random.Range(-screenBounds.x + 2, screenBounds.x - 2), Random.Range(0, screenBounds.y));
     }
     private void spawnGreenFish()
     {
         GameObject b = Instantiate(GreenPrefabQ) as GameObject;
-        b.transform.position = new Vector2(Random.Range(-screenBounds.x + 2 , screenBounds.x - 2), Random.Range(0, screenBounds.y));
+        b.transform.position = new Vector2(Random.Range(-screenBounds.x + 2, screenBounds.x - 2), Random.Range(0, screenBounds.y));
     }
     private void spawnPinkFish()
     {
         GameObject c = Instantiate(PinkFishPrefabQ) as GameObject;
-        c.transform.position = new Vector2(Random.Range(-screenBounds.x + 2 , screenBounds.x - 2), Random.Range(0, screenBounds.y));
+        c.transform.position = new Vector2(Random.Range(-screenBounds.x + 2, screenBounds.x - 2), Random.Range(0, screenBounds.y));
     }
 
     private void spawnBlueFish()
     {
-         GameObject d = Instantiate(BlueFishPrefabQ) as GameObject;
-        d.transform.position = new Vector2(Random.Range(-screenBounds.x + 2 , screenBounds.x - 2), Random.Range(0, screenBounds.y));
+        GameObject d = Instantiate(BlueFishPrefabQ) as GameObject;
+        d.transform.position = new Vector2(Random.Range(-screenBounds.x + 2, screenBounds.x - 2), Random.Range(0, screenBounds.y));
     }
 
     private void spawnTypesFishes()
     {
-        for (int i = 0; i < spawnLFQ; i++) {
+        for (int i = 0; i < spawnLFQ; i++)
+        {
             spawnLionFish();
         }
 
-        for (int j = 0; j < spawnGFQ; j++) {
+        for (int j = 0; j < spawnGFQ; j++)
+        {
             spawnGreenFish();
         }
 
-        for (int k = 0; k < spawnPFQ; k++) {
+        for (int k = 0; k < spawnPFQ; k++)
+        {
             spawnPinkFish();
         }
 
-        for (int k = 0; k < spawnBFQ; k++) {
+        for (int k = 0; k < spawnBFQ; k++)
+        {
             spawnBlueFish();
         }
     }

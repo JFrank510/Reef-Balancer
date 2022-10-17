@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionGenerate : MonoBehaviour
 {
     private static SpawnerFishesQ spawn;
+    private static QuestionDisplay question;
     public static string currentAnswer, correctAnswer, correctAnswerText;
-    public GameObject QuestionImg, QuestionImg2, QuestionImg3, QuestionImg4, panelQuestionT, panelQuestionI;
+    public GameObject QuestionImg, QuestionImg2, QuestionImg3, QuestionImg4;
     public GameObject AnswerAImg, AnswerAImg2, AnswerAImg3, AnswerAImg4;
     public GameObject AnswerBImg, AnswerBImg2, AnswerBImg3, AnswerBImg4;
     public GameObject AnswerCImg, AnswerCImg2, AnswerCImg3, AnswerCImg4;
     public GameObject AnswerDImg, AnswerDImg2, AnswerDImg3, AnswerDImg4;
     private int A, B, C, D, randomQuestion, randomAnswer, randomNumber, higherValue, lessValue, randomArrayNumber;
-
     private string AF, BF, CF, DF;
     private string AI, BI, CI, DI;
-
     private int AIF, BIF, CIF, DIF;
     private int[] swapAns = new int[4];
     private List<int> listNumbers = new List<int>();
@@ -23,12 +23,24 @@ public class QuestionGenerate : MonoBehaviour
     private string[] answersImage = new string[4];
     private System.Random random = new System.Random();
 
+
     // Start is called before the first frame update
     void Start()
     {
-        spawn = FindObjectOfType<SpawnerFishesQ>();
-        spawn.DoSpawn();
         QuestionsView();
+    }
+
+    void Awake()
+    {
+        spawn = FindObjectOfType<SpawnerFishesQ>();
+    }
+
+    private void ChangeFontSize()
+    {
+        question.answerA.GetComponent<Text>().fontSize = 10;
+        question.answerB.GetComponent<Text>().fontSize = 10;
+        question.answerC.GetComponent<Text>().fontSize = 10;
+        question.answerD.GetComponent<Text>().fontSize = 10;
     }
 
     public void RandomAnswers()
@@ -42,7 +54,6 @@ public class QuestionGenerate : MonoBehaviour
             listNumbers.Add(randomNumber);
         }
     }
-
 
     public void GenerateAnswersText(int spawnType)
     {
@@ -135,6 +146,7 @@ public class QuestionGenerate : MonoBehaviour
             correctAnswerText = "BlueFish";
         }
     }
+
     public void DisplayImageButton()
     {
         if (AI == "LionFish")
@@ -268,84 +280,67 @@ public class QuestionGenerate : MonoBehaviour
 
     public void QuestionsView()
     {
-        if (QuestionDisplay.randomQuestion == 0)
+        // randomQuestion = 1;
+        randomQuestion = Random.Range(1, 5);
+        if (randomQuestion == 1)
         {
-            panelQuestionT.SetActive(true);
-            // randomQuestion = 4;
-            randomQuestion = Random.Range(1, 4);
-            if (randomQuestion == 1)
-            {
-                GenerateAnswersText(spawn.spawnLFQ);
-                QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
-                QuestionImg2.SetActive(false);
-                QuestionImg3.SetActive(false);
-                QuestionImg4.SetActive(false);
-                QuestionDisplay.newA = AF;
-                QuestionDisplay.newB = BF;
-                QuestionDisplay.newC = CF;
-                QuestionDisplay.newD = DF;
-                CheckAnswers(correctAnswer);
-            }
-
-            if (randomQuestion == 2)
-            {
-                GenerateAnswersText(spawn.spawnGFQ);
-                QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
-                QuestionImg.SetActive(false);
-                QuestionImg3.SetActive(false);
-                QuestionImg4.SetActive(false);
-                QuestionDisplay.newA = AF;
-                QuestionDisplay.newB = BF;
-                QuestionDisplay.newC = CF;
-                QuestionDisplay.newD = DF;
-                CheckAnswers(correctAnswer);
-            }
-
-            if (randomQuestion == 3)
-            {
-                GenerateAnswersText(spawn.spawnPFQ);
-                QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
-                QuestionImg.SetActive(false);
-                QuestionImg2.SetActive(false);
-                QuestionImg4.SetActive(false);
-                QuestionDisplay.newA = AF;
-                QuestionDisplay.newB = BF;
-                QuestionDisplay.newC = CF;
-                QuestionDisplay.newD = DF;
-                CheckAnswers(correctAnswer);
-            }
-
-            if (randomQuestion == 4)
-            {
-                GenerateAnswersText(spawn.spawnBFQ);
-                QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
-                QuestionImg.SetActive(false);
-                QuestionImg2.SetActive(false);
-                QuestionImg3.SetActive(false);
-                QuestionDisplay.newA = AF;
-                QuestionDisplay.newB = BF;
-                QuestionDisplay.newC = CF;
-                QuestionDisplay.newD = DF;
-                CheckAnswers(correctAnswer);
-            }
+            GenerateAnswersText(spawn.spawnLFQ);
+            QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
+            QuestionImg.SetActive(true);
+            QuestionDisplay.newA = AF;
+            QuestionDisplay.newB = BF;
+            QuestionDisplay.newC = CF;
+            QuestionDisplay.newD = DF;
+            CheckAnswers(correctAnswer);
         }
 
-        if (QuestionDisplay.randomQuestion == 1)
+        if (randomQuestion == 2)
         {
-            panelQuestionI.SetActive(true);
-            // randomQuestion = Random.Range(1,3);
-            randomQuestion = 1;
-            if (randomQuestion == 1)
-            {
-                GenerateAnswersImage();
-                DisplayImageButton();
-                QuestionDisplay.newQuestion = "Cual especie observaste mas?:";
-                QuestionDisplay.newIA = AI;
-                QuestionDisplay.newIB = BI;
-                QuestionDisplay.newIC = CI;
-                QuestionDisplay.newID = DI;
-                CheckAnswersText();
-            }
+            GenerateAnswersText(spawn.spawnGFQ);
+            QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
+            QuestionImg2.SetActive(true);
+            QuestionDisplay.newA = AF;
+            QuestionDisplay.newB = BF;
+            QuestionDisplay.newC = CF;
+            QuestionDisplay.newD = DF;
+            CheckAnswers(correctAnswer);
+        }
+
+        if (randomQuestion == 3)
+        {
+            GenerateAnswersText(spawn.spawnPFQ);
+            QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
+            QuestionImg3.SetActive(true);
+            QuestionDisplay.newA = AF;
+            QuestionDisplay.newB = BF;
+            QuestionDisplay.newC = CF;
+            QuestionDisplay.newD = DF;
+            CheckAnswers(correctAnswer);
+        }
+
+        if (randomQuestion == 4)
+        {
+            GenerateAnswersText(spawn.spawnBFQ);
+            QuestionDisplay.newQuestion = "Cuantas veces observaste esta especie:";
+            QuestionImg4.SetActive(true);
+            QuestionDisplay.newA = AF;
+            QuestionDisplay.newB = BF;
+            QuestionDisplay.newC = CF;
+            QuestionDisplay.newD = DF;
+            CheckAnswers(correctAnswer);
+        }
+
+        if (randomQuestion == 5)
+        {
+            GenerateAnswersImage();
+            DisplayImageButton();
+            ChangeFontSize();
+            QuestionDisplay.newQuestion = "Cual especie observaste mas?:";
+            QuestionDisplay.newA = AI;
+            QuestionDisplay.newB = BI;
+            QuestionDisplay.newC = CI;
+            QuestionDisplay.newD = DI;
+            CheckAnswersText();
         }
     }
 

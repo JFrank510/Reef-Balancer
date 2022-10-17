@@ -6,17 +6,19 @@ using UnityEngine.UI;
 public class GameManagerQ : MonoBehaviour
 {
     public GameObject panelQuestion;
-    public GameObject panelRound;
-    public GameObject spawn;
+    public GameObject panelRound,spawnHUD;
+    // ,spawn,spawn2,spawn3;
+    private static QuestionGenerate question;
     public Text timeRText;
     // public Text timeQText;
-    public float durationR, currentTimeR;
+    private float currentTimeR;
+    public GameObject[] Fishes;
     // public float durationQ,currentTimeQ;
 
-    void Start()
+    public void Start()
     {
         panelRound.SetActive(true);
-        currentTimeR = durationR;
+        currentTimeR = 10;
         // currentTimeQ = durationQ;
         StartCoroutine(TimeInRound());
     }
@@ -30,6 +32,16 @@ public class GameManagerQ : MonoBehaviour
             currentTimeR--;
         }
         openPanel();
+    }
+    
+    void DesactivateFishes()
+    {
+        Fishes = GameObject.FindGameObjectsWithTag("Fish");
+        foreach (GameObject Fish in Fishes)
+        {
+            // Fish.SetActive(false);
+            Destroy(Fish);
+        }
     }
 
     // IEnumerator TimeInQuestion()
@@ -46,8 +58,9 @@ public class GameManagerQ : MonoBehaviour
     void openPanel()
     {
         panelRound.SetActive(false);
-        spawn.SetActive(false);
         panelQuestion.SetActive(true);
+        spawnHUD.SetActive(false);
+        DesactivateFishes();
         // StartCoroutine(TimeInQuestion());
     }
 
