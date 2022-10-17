@@ -19,7 +19,7 @@ public class HideNSeek : MonoBehaviour
     public Text loseScore;
     public Text winScore;
 
-    public UnityEngine.Rendering.Universal.Light2D light;
+    public UnityEngine.Rendering.Universal.Light2D lt;
     public bool isNight;
     private bool isPaused = false;
     private Vector2 screenBounds;
@@ -44,16 +44,19 @@ public class HideNSeek : MonoBehaviour
         uiScore = GameObject.Find("Text Score").GetComponent<TMP_Text>();
         
         // get the light component
-        light = this.transform.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        lt = this.transform.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
 
         // check boundaries
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
+        float yOffset = screenBounds.y * 0.4f;
+        float xOffset = 0.5f;
+
         // create fishes and obstacles between boundaries.
         for (int i = 0; i < maximum; i++) {
             // @TODO: we need more dispersion
-            float positionX = Random.Range(-screenBounds.x + 1, screenBounds.x - 1);
-            float positionY = Random.Range(-1f, screenBounds.y - 1);
+            float positionX = Random.Range(-screenBounds.x + xOffset, screenBounds.x - xOffset);
+            float positionY = Random.Range(-1, screenBounds.y - yOffset);
 
             CreateFish(positionX, positionY);
             CreateObstacle(positionX, positionY);
@@ -108,7 +111,7 @@ public class HideNSeek : MonoBehaviour
         if (ctdnw < 30) {
             // activate night
             isNight = true;
-            light.intensity = 0.2f;
+            lt.intensity = 0.2f;
         }
     }
 

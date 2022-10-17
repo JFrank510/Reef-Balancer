@@ -29,22 +29,51 @@ public class VerticalPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Move turtle
         Move();
 
-        if (tick <= 0) {
+        // Do turtle damage animation.
+        damageAnimation();
+    }
+
+    void damageAnimation()
+    {
+        // Cancel damage animation
+        if (tick <= 0.0f) {
             isVulnerable = true;
             tick = 2.0f;
-            this.gameObject.transform.localScale = new Vector3(0.1861576f, 0.1861576f, 0.1861576f);
-        } else if (tick > 0 && !isVulnerable) {
+            sizeNormal();
+        }
+
+        // do damage animation
+        else if (tick > 0.0f && !isVulnerable) {
             tick -= Time.deltaTime;
 
-
-            if (this.gameObject.transform.localScale == Vector3.zero) {
-                this.gameObject.transform.localScale = new Vector3(0.1861576f, 0.1861576f, 0.1861576f);
+            if (sizeIsZero()) {
+                sizeNormal();
             } else {
-                this.gameObject.transform.localScale = Vector3.zero;
+                sizeZero();
             }
         }
+    }
+
+    // Turtle recovers its normal size
+    void sizeNormal()
+    {
+        // TODO: If sprite is changed, please change the vector to a size that fits the game.
+        this.gameObject.transform.localScale = new Vector3(0.1861576f, 0.1861576f, 0.1861576f);
+    }
+
+    // Turtle size set to 0
+    void sizeZero()
+    {
+        this.gameObject.transform.localScale = Vector3.zero;
+    }
+
+    // Check if size is zero.
+    bool sizeIsZero()
+    {
+        return this.gameObject.transform.localScale == Vector3.zero;
     }
 
     void Move()
@@ -104,6 +133,7 @@ public class VerticalPlayer : MonoBehaviour
         }
     }
 
+    // set turtle to be invulnerable
     public void Invulnerable()
     {
         isVulnerable = false;
