@@ -49,11 +49,14 @@ public class HideNSeek : MonoBehaviour
         // check boundaries
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
+        float yOffset = screenBounds.y * 0.4f;
+        float xOffset = 0.5f;
+
         // create fishes and obstacles between boundaries.
         for (int i = 0; i < maximum; i++) {
             // @TODO: we need more dispersion
-            float positionX = Random.Range(-screenBounds.x + 1, screenBounds.x - 1);
-            float positionY = Random.Range(-1f, screenBounds.y - 1);
+            float positionX = Random.Range(-screenBounds.x + xOffset, screenBounds.x - xOffset);
+            float positionY = Random.Range(-1, screenBounds.y - yOffset);
 
             CreateFish(positionX, positionY);
             CreateObstacle(positionX, positionY);
