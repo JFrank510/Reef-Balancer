@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectCharacterCaptureHard.unity
     guid: e58441d7a92b11c4cbeb7d5f623a6b1f
+  - enabled: 1
+    path: Assets/Scenes/Runner.unity
+    guid: 57f696dc01e491c47a9ed501d2101216
+  - enabled: 1
+    path: Assets/Scenes/QuestionTypes.unity
+    guid: 44dbbb596d2947b4f89baaa858100a65
   m_configObjects: {}
