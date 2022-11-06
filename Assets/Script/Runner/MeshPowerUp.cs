@@ -122,7 +122,7 @@ public class MeshPowerUp : MonoBehaviour
                 // adjust velocity and position
                 speedX = 0.0f;
                 rb.velocity = new Vector2(speedX, speedY);
-                this.transform.position = new Vector2(this.transform.position.x + 1, 0.0f);
+                this.transform.position = new Vector2(other.transform.position.x + 2f, 0.0f);
             } 
             // if collides with another thing
             else {

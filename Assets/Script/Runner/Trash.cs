@@ -27,7 +27,7 @@ public class Trash : MonoBehaviour
         rb.isKinematic = false;
         int random = 0;
         
-        if (this.transform.position.y == -2.25f) { 
+        if (this.transform.position.y <= -2.25f) { 
             // Only Coral Sprites
             this.name = "Coral";
             random = Random.Range(sprites.Length - 2, sprites.Length); 

@@ -84,7 +84,7 @@ public class Runner : MonoBehaviour
             changeIlumination = ILLUMINATION_CNDWN;
 
             if (lt.intensity == 1.0f) {
-                lt.intensity = 0.3f;
+                lt.intensity = 0.4f;
 
                 player.GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
             } else {

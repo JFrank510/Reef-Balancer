@@ -81,7 +81,7 @@ public class SpawnObstacles : MonoBehaviour
     {
         switch(option) {
             case 1:
-                GameObject a = Create(-2.25f);
+                GameObject a = Create(-2.45f);
                 SpawnPowerUp();
                 break;
             case 2:
@@ -90,7 +90,7 @@ public class SpawnObstacles : MonoBehaviour
                 }
                 break;
             case 3:
-                GameObject c = Create(-2.25f);
+                GameObject c = Create(-2.45f);
                 if (!SpawnPowerUp()) {
                     GameObject d = Create(0f);
                 }
@@ -101,7 +101,7 @@ public class SpawnObstacles : MonoBehaviour
                 break;
             case 5:
                 GameObject f = Create(2.25f);
-                GameObject g = Create(-2.25f);
+                GameObject g = Create(-2.45f);
                 SpawnPowerUp();
                 break;
             case 6:
