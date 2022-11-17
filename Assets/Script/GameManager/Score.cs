@@ -4,17 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Score : MonoBehaviour
+public class Score : MonoBehaviour, IDataPersistence
 {
     public static int score;
     public Text scoreTxt;
     public Text scoreGameover;
-
     public Text scoreWin;
-
     public GameObject panel;
-
     private static Combo cmb;
+    public int coralCoins;
 
     void Start()
     {
@@ -23,7 +21,7 @@ public class Score : MonoBehaviour
         Time.timeScale = 1f;
         cmb = this.transform.GetComponent<Combo>();
     }
-    
+
     public static void updateScore(int points)
     {
         // Get the current combo
@@ -40,9 +38,25 @@ public class Score : MonoBehaviour
 
     void LateUpdate()
     {
-        scoreTxt.text = "Score: "+score;
-        scoreGameover.text = score+" POINTS";
-        scoreWin.text = score+" POINTS";
+        scoreTxt.text = "Score: " + score;
+        scoreGameover.text = score + " POINTS";
+        scoreWin.text = score + " POINTS";
+    }
+
+    public void scoreToCoins()
+    {
+        coralCoins = score / 100;
+        Debug.Log(coralCoins);
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.coralCoins += data.coralCoints;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.coralCoints += this.coralCoins;
     }
 
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class HideNSeek : MonoBehaviour
+public class HideNSeek : MonoBehaviour, IDataPersistence
 {
     public GameObject CaughtPrefab;
     public GameObject MovePrefab;
@@ -28,6 +28,8 @@ public class HideNSeek : MonoBehaviour
     public int maximum = 12;
     public int score = 0;
     public int remainingFishes;
+
+    public int coralCoins;
 
     // Start is called before the first frame update
     void Start()
@@ -167,5 +169,21 @@ public class HideNSeek : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Resume();
+    }
+
+    public void scoreToCoins()
+    {
+        coralCoins = score / 100;
+        Debug.Log(coralCoins);
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.coralCoins += data.coralCoints;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.coralCoints += this.coralCoins;
     }
 }
