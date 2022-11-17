@@ -41,7 +41,7 @@ using UnityEngine.EventSystems;
 public class CoralTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public string tipToShow;
-    private float timeToWait = 0.5f;
+    private float timeToWait = 0.3f;
     public void OnPointerEnter(PointerEventData eventData)
     {
         StopAllCoroutines();
