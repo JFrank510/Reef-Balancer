@@ -5,18 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class Runner : MonoBehaviour
+public class Runner : MonoBehaviour, IDataPersistence
 {
     private bool gameRunning;
     private bool isPaused;
     public int score;
     private VerticalPlayer player;
     private SpawnObstacles spawn;
-    
+
     public GameObject uiPanel;
     public GameObject pausePanel;
     public GameObject losePanel;
-    
+
     private TMP_Text uiScore;
     private TMP_Text uiLives;
     public Text loseScore;
@@ -27,6 +27,8 @@ public class Runner : MonoBehaviour
 
     private float changeIlumination;
 
+    public int coralCoins;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +38,7 @@ public class Runner : MonoBehaviour
 
         player = GameObject.Find("Player").GetComponent<VerticalPlayer>();
         spawn = GetComponent<SpawnObstacles>();
-        lt    = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        lt = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
 
         uiScore = GameObject.Find("Text Score").GetComponent<TMP_Text>();
         uiLives = GameObject.Find("Text Lives").GetComponent<TMP_Text>();
@@ -48,10 +50,12 @@ public class Runner : MonoBehaviour
     void Update()
     {
         // Check if player is alive
-        if (gameRunning) {
+        if (gameRunning)
+        {
             setIlumination();
 
-            if (player.lives <= 0) {
+            if (player.lives <= 0)
+            {
                 gameRunning = false;
                 HideUI();
                 GameOver();
@@ -65,11 +69,15 @@ public class Runner : MonoBehaviour
             uiLives.SetText("Vidas: " + player.lives.ToString());
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (isPaused) {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
                 UnPause();
                 ShowUI();
-            } else {
+            }
+            else
+            {
                 Pause();
                 HideUI();
             }
@@ -80,22 +88,27 @@ public class Runner : MonoBehaviour
     {
         changeIlumination -= Time.deltaTime;
 
-        if (changeIlumination < 0) {
+        if (changeIlumination < 0)
+        {
             changeIlumination = ILLUMINATION_CNDWN;
 
-            if (lt.intensity == 1.0f) {
+            if (lt.intensity == 1.0f)
+            {
                 lt.intensity = 0.4f;
 
                 player.GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
-            } else {
+            }
+            else
+            {
                 lt.intensity = 1.0f;
-                
+
                 player.GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0;
             }
         }
     }
 
-    public bool isNigth() {
+    public bool isNigth()
+    {
         return lt.intensity != 1.0f;
     }
 
@@ -135,7 +148,8 @@ public class Runner : MonoBehaviour
         uiPanel.SetActive(true);
     }
 
-    public void AddPoints(int point) {
+    public void AddPoints(int point)
+    {
         score += point;
     }
 
@@ -155,5 +169,21 @@ public class Runner : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void scoreToCoins()
+    {
+        coralCoins = score / 100;
+        Debug.Log(coralCoins);
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.coralCoins += data.coralCoints;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.coralCoints += this.coralCoins;
     }
 }
