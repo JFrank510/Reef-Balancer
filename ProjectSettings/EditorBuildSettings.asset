@@ -30,9 +30,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Runner.unity
     guid: 57f696dc01e491c47a9ed501d2101216
   - enabled: 1
-    path: Assets/Scenes/QuestionTypes.unity
-    guid: 44dbbb596d2947b4f89baaa858100a65
-  - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: 63aaf3353efb74744817b0c41cb32fb7
+  - enabled: 1
+    path: Assets/Scenes/TutoHNS.unity
+    guid: 03779b20939c5d74fb4689a123baf288
+  - enabled: 1
+    path: Assets/Scenes/TutoRunner.unity
+    guid: c774ac19c404cea459e9d0d496823e39
+  - enabled: 1
+    path: Assets/Scenes/TutoQuiz.unity
+    guid: 303f4ff2f2acb63418d9b7d71959560d
   m_configObjects: {}

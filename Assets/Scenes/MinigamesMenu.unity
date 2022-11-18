@@ -525,7 +525,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Quiz
+          m_StringArgument: TutoQuiz
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &373770013
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8bd53da33c55d41bc9ceff8bbad405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Nivel 5 - Tipo de especies
+  tipToShow: "Nivel 5 - Identificaci\xF3n de especies"
 --- !u!1 &462554420
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +905,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: HideNSeek
+          m_StringArgument: TutoHNS
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &494015464
@@ -958,7 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8bd53da33c55d41bc9ceff8bbad405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Nivel 2 - Escondidas
+  tipToShow: Nivel 2 - Especies escondidas
 --- !u!1 &570645262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8bd53da33c55d41bc9ceff8bbad405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Nivel 3 - Controla el Arrecife (Dificil)
+  tipToShow: Nivel 3 - Controla el arrecife (Dificil)
 --- !u!1 &789888124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,7 +1712,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Runner
+          m_StringArgument: TutoRunner
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &990139428
@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8bd53da33c55d41bc9ceff8bbad405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Nivel 4 - Runner
+  tipToShow: Nivel 4 - Carrera arrecifal
 --- !u!1 &1045137111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1780,7 @@ GameObject:
   - component: {fileID: 1045137112}
   - component: {fileID: 1045137116}
   - component: {fileID: 1045137117}
+  - component: {fileID: 1045137118}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1888,8 +1889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dea0b5bdf38bdd40ac4d303ad47689a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCoins: {fileID: 986711810}
-  coralCoins: 0
 --- !u!114 &1045137117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1904,6 +1903,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipText: {fileID: 1992253439}
   tipWindow: {fileID: 860337343}
+--- !u!114 &1045137118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045137111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76651d819efaca14dacbdbca986693df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCoins: {fileID: 986711810}
+  coralCoins: 0
 --- !u!1 &1082255254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,7 +2140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8bd53da33c55d41bc9ceff8bbad405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Nivel 1 - Controla el Arrecife
+  tipToShow: Nivel 1 - Control de especies
 --- !u!1 &1310276634
 GameObject:
   m_ObjectHideFlags: 0
