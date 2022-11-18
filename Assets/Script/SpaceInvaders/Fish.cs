@@ -56,7 +56,7 @@ public class Fish : MonoBehaviour
         rb.velocity = new Vector2(speedX, speedY);
     }
 
-    void Flip()
+    public void Flip()
     {
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
